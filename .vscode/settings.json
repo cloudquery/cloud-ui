@@ -1,0 +1,11 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "eslint.options": {
+    "extensions": [".js", ".ts"]
+  },
+  "editor.formatOnSave": false,
+  "files.associations": { "*.json": "jsonc" }
+}
