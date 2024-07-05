@@ -1,7 +1,7 @@
 {
   "name": "@cloudquery/cloud-ui",
   "description": "Plugin configuration UI connector for CloudQuery Cloud App",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -87,7 +87,7 @@
     "terser-webpack-plugin": "5.3.10",
     "ts-jest": "29.1.5",
     "ts-loader": "9.5.1",
-    "typescript": "5.5.3",
+    "typescript": "5.4.2",
     "webpack": "5.92.1",
     "webpack-bundle-analyzer": "4.10.2",
     "webpack-cli": "5.1.4"
