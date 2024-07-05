@@ -1,5 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 
+import { breakpoints } from './breakpoints';
 import { createThemeComponents } from './createComponents';
 import { createThemePaletteOptions } from './createPaletteOptions';
 import { createThemeShadows } from './createShadows';
@@ -11,7 +12,7 @@ import { createTypographyOptions } from './createTypographyOptions';
  * This function combines typography, palette, component, and shadow options
  * to create a cohesive theme configuration for Material-UI.
  *
- * @returns The theme options including typography, palette, components, and shadows.
+ * @returns The theme options including breakpoints, shape, direction, typography, palette, components, shadows.
  *
  * @public
  */
@@ -22,6 +23,13 @@ export const createThemeOptions = (): ThemeOptions => {
   const shadows = createThemeShadows();
 
   return {
+    breakpoints: {
+      values: breakpoints,
+    },
+    shape: {
+      borderRadius: 8,
+    },
+    direction: 'ltr',
     components,
     palette: paletteOptions,
     shadows,
