@@ -159,7 +159,7 @@ export function FormFieldGroup({ children, subheader, title }: Props): JSX_2.Ele
 // Warning: (ae-forgotten-export) The symbol "Props_2" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function FormFieldReset({ initialValue, isResetted, onChange, inputSelectorToFocus, sx, }: Props_2): JSX_2.Element;
+export function FormFieldReset({ isResetted, onReset, onCancel, inputSelectorToFocus, sx }: Props_2): JSX_2.Element;
 
 // @public
 const info: PaletteColor;

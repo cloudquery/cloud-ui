@@ -8,8 +8,10 @@ interface Props {
   initialValue: string | undefined;
   // Whether the field is currently resetted or not
   isResetted: boolean;
-  // The function to call to update the field value
-  onChange: (value: string) => void;
+  // The function to call when the field is resetted
+  onReset: () => void;
+  // The function to call when the reset is cancelled
+  onCancel: () => void;
   // The selector of the input to focus after the reset
   inputSelectorToFocus?: string;
   // The sx props to apply to the button
@@ -22,30 +24,20 @@ interface Props {
  *
  * @public
  */
-export function FormFieldReset({
-  initialValue,
-  isResetted,
-  onChange,
-  inputSelectorToFocus,
-  sx,
-}: Props) {
+export function FormFieldReset({ isResetted, onReset, onCancel, inputSelectorToFocus, sx }: Props) {
   const handleReset = useCallback(() => {
-    onChange('');
+    onReset();
     if (inputSelectorToFocus) {
       setTimeout(() => {
         const element = document.querySelector(inputSelectorToFocus) as HTMLInputElement | null;
         element?.focus();
       }, 0);
     }
-  }, [onChange, inputSelectorToFocus]);
-
-  const handleCancel = useCallback(() => {
-    onChange(initialValue);
-  }, [onChange, initialValue]);
+  }, [onReset, inputSelectorToFocus]);
 
   if (isResetted) {
     return (
-      <Button onClick={handleCancel} sx={sx} variant="outlined">
+      <Button onClick={onCancel} sx={sx} variant="outlined">
         Cancel
       </Button>
     );
