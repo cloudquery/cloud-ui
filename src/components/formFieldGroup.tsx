@@ -18,14 +18,7 @@ interface Props {
  */
 export function FormFieldGroup({ children, subheader, title }: Props) {
   return (
-    <Card
-      sx={{
-        paddingRight: 6,
-        [`.${cardClasses.root}`]: {
-          paddingRight: 0,
-        },
-      }}
-    >
+    <Card>
       <CardHeader subheader={subheader} title={title} />
       <CardContent
         sx={{

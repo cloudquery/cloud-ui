@@ -4,17 +4,23 @@
 
 ```ts
 
+/// <reference types="react" />
+
 import { BreakpointOverrides } from '@mui/system/createTheme/createBreakpoints';
 import { Components } from '@mui/material/styles';
 import { JSX as JSX_2 } from 'react/jsx-runtime';
 import { ListItemProps } from '@mui/material/ListItem';
 import { ListProps } from '@mui/material/List';
+import { MutableRefObject } from 'react';
 import { PaletteColor } from '@mui/material/styles/createPalette';
 import { PaletteColor as PaletteColor_2 } from '@mui/material/styles';
 import { PaletteMode } from '@mui/material';
+import { PluginUiMessageHandler } from '@cloudquery/plugin-config-ui-connector';
+import { PluginUiMessagePayload } from '@cloudquery/plugin-config-ui-connector';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { Shadows } from '@mui/material/styles';
+import { SxProps } from '@mui/system';
 import { ThemeOptions } from '@mui/material/styles';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
@@ -150,6 +156,11 @@ const error: PaletteColor;
 // @public
 export function FormFieldGroup({ children, subheader, title }: Props): JSX_2.Element;
 
+// Warning: (ae-forgotten-export) The symbol "Props_2" needs to be exported by the entry point index.d.ts
+//
+// @public
+export function FormFieldReset({ initialValue, isResetted, onChange, inputSelectorToFocus, sx, }: Props_2): JSX_2.Element;
+
 // @public
 const info: PaletteColor;
 
@@ -165,25 +176,49 @@ const secondary: PaletteColor;
 // @public
 const success: PaletteColor;
 
-// Warning: (ae-forgotten-export) The symbol "Props_2" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function TableSelector({ subscribeToTablesValueChange, errorMessage, value, onChange, tableList, }: Props_2): JSX_2.Element;
-
 // Warning: (ae-forgotten-export) The symbol "Props_3" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const TreeGroup: React_2.NamedExoticComponent<Props_3>;
+export function TableSelector({ subscribeToTablesValueChange, errorMessage, value, onChange, tableList, }: Props_3): JSX_2.Element;
 
 // Warning: (ae-forgotten-export) The symbol "Props_4" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const TreeNode: React_2.NamedExoticComponent<Props_4>;
+export const TreeGroup: React_2.NamedExoticComponent<Props_4>;
 
 // Warning: (ae-forgotten-export) The symbol "Props_5" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function TreeRoot({ children, ...props }: Props_5): JSX_2.Element;
+export const TreeNode: React_2.NamedExoticComponent<Props_5>;
+
+// Warning: (ae-forgotten-export) The symbol "Props_6" needs to be exported by the entry point index.d.ts
+//
+// @public
+export function TreeRoot({ children, ...props }: Props_6): JSX_2.Element;
+
+// @public
+export function usePluginUiFormHeightChange(pluginUiMessageHandler: PluginUiMessageHandler): MutableRefObject<HTMLDivElement>;
+
+// @public
+export function usePluginUiFormInit(pluginUiMessageHandler: PluginUiMessageHandler, hideSubmitButton: boolean): {
+    initialized: boolean;
+    initialValues: {
+        migrateMode: "forced" | "safe";
+        envs: {
+            name: string;
+            value: string;
+        }[];
+        spec: Record<string, any>;
+        tables: string[];
+        writeMode: "append" | "overwrite" | "overwrite-delete-stale";
+    };
+};
+
+// Warning: (ae-forgotten-export) The symbol "Success" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Failure" needs to be exported by the entry point index.d.ts
+//
+// @public
+export function usePluginUiFormSubmit(onValidate: () => Promise<Success | Failure> | Success | Failure, pluginUiMessageHandler: PluginUiMessageHandler): void;
 
 // @public
 const warning: PaletteColor;
