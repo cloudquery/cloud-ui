@@ -4,8 +4,6 @@ import Button from '@mui/material/Button';
 import { SxProps } from '@mui/system';
 
 interface Props {
-  // The initial value of the field
-  initialValue: string | undefined;
   // Whether the field is currently resetted or not
   isResetted: boolean;
   // The function to call when the field is resetted
