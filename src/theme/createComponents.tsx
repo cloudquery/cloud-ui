@@ -653,7 +653,7 @@ export const createThemeComponents = ({
           borderRadius: '12px',
           borderColor: paletteOptions.action.active,
           '&:hover': {
-            bgcolor: paletteOptions.primary.hovered,
+            backgroundColor: paletteOptions.primary.hovered,
             borderColor: paletteOptions.primary.dark,
           },
           '&.Mui-selected': {
