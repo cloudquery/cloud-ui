@@ -5,7 +5,7 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
 import { render as rtlRender } from '@testing-library/react';
 
-import { createThemeOptions } from '../theme';
+import { createThemeOptions } from '../../theme';
 
 type RenderParams = Parameters<typeof rtlRender>;
 

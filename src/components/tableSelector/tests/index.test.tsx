@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { screen, fireEvent, act } from '@testing-library/react';
 
 import { TableSelector } from '..';
-import { renderWithTheme } from '../../../tests/renderWithTheme';
+import { renderWithTheme } from '../../../utils/tests/renderWithTheme';
 import { PluginTableListItem } from '../types';
 
 const mockTableList: PluginTableListItem[] = [
