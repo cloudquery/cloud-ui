@@ -533,6 +533,16 @@ export const createThemeComponents = ({
         color: 'primary',
       },
     },
+    MuiStepLabel: {
+      styleOverrides: {
+        label: {
+          '&.Mui-active,&.Mui-completed': {
+            color: paletteOptions.primary.main,
+          },
+          color: paletteOptions.secondary.main,
+        },
+      },
+    },
     MuiSwitch: {
       defaultProps: {
         color: 'primary',
@@ -633,6 +643,27 @@ export const createThemeComponents = ({
       defaultProps: {
         variant: 'filled',
       },
+    },
+    MuiToggleButton: {
+      styleOverrides: {
+        root: {
+          justifyContent: 'flex-start',
+          textAlign: 'left',
+          textTransform: 'none',
+          borderRadius: '12px',
+          borderColor: paletteOptions.action.active,
+          '&:hover': {
+            bgcolor: paletteOptions.primary.hovered,
+            borderColor: paletteOptions.primary.dark,
+          },
+          '&.Mui-selected': {
+            borderColor: paletteOptions.primary.main,
+          },
+          '& .MuiRadio-root:hover': {
+            background: 'none',
+          },
+        }
+      }
     },
     MuiTooltip: {
       defaultProps: {
