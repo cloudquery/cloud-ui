@@ -1,0 +1,1 @@
+export { getYupValidationResolver } from './getYupValidationResolver';

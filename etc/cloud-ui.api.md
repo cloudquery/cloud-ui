@@ -23,6 +23,7 @@ import { Shadows } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
 import { ThemeOptions } from '@mui/material/styles';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
+import * as Yup from 'yup';
 
 // @public
 export const breakpoints: Record<keyof BreakpointOverrides, number>;
@@ -160,6 +161,20 @@ export function FormFieldGroup({ children, subheader, title }: Props): JSX_2.Ele
 //
 // @public
 export function FormFieldReset({ isResetted, onReset, onCancel, inputSelectorToFocus, sx }: Props_2): JSX_2.Element;
+
+// @public
+export function getYupValidationResolver<FieldValues extends Yup.AnyObject, Schema extends Yup.ObjectSchema<FieldValues>>(validationSchema: Schema): (data: any) => Promise<{
+    errors: {};
+    values: Schema["__outputType"];
+} | {
+    errors: {
+        [k: string]: {
+            message: string;
+            type: string;
+        };
+    };
+    values: {};
+}>;
 
 // @public
 const info: PaletteColor;

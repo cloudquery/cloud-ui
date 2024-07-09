@@ -32,6 +32,8 @@ module.exports = {
     /^@mui\/system.*/,
     /^@emotion\/react.*/,
     /^@emotion\/styled.*/,
+    'yup',
+    'humanize-string',
   ],
   optimization: {
     minimizer: [new TerserPlugin({
