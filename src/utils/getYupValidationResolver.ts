@@ -43,18 +43,24 @@ export function getYupValidationResolver<
   };
 }
 
-Yup.setLocale({
-  number: {
-    integer: '',
-    max: '',
-    min: '',
-  },
-  string: {
-    email: '',
-    max: '',
-    min: '',
-  },
-});
+export function resetYupDefaultErrorMessages(yup: typeof Yup) {
+  yup.setLocale({
+    mixed: {
+      notType: '',
+      required: '',
+    },
+    number: {
+      integer: '',
+      max: '',
+      min: '',
+    },
+    string: {
+      email: '',
+      max: '',
+      min: '',
+    },
+  });
+}
 
 function capitalizeText(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

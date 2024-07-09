@@ -185,6 +185,9 @@ const neutral: ColorRange;
 // @public
 const primary: PaletteColor;
 
+// @public (undocumented)
+export function resetYupDefaultErrorMessages(yup: typeof Yup): void;
+
 // @public
 const secondary: PaletteColor;
 

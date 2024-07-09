@@ -1,1 +1,1 @@
-export { getYupValidationResolver } from './getYupValidationResolver';
+export { resetYupDefaultErrorMessages, getYupValidationResolver } from './getYupValidationResolver';
