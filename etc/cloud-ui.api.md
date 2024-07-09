@@ -4,19 +4,14 @@
 
 ```ts
 
-/// <reference types="react" />
-
 import { BreakpointOverrides } from '@mui/system/createTheme/createBreakpoints';
 import { Components } from '@mui/material/styles';
 import { JSX as JSX_2 } from 'react/jsx-runtime';
 import { ListItemProps } from '@mui/material/ListItem';
 import { ListProps } from '@mui/material/List';
-import { MutableRefObject } from 'react';
 import { PaletteColor } from '@mui/material/styles/createPalette';
 import { PaletteColor as PaletteColor_2 } from '@mui/material/styles';
-import { PaletteMode } from '@mui/material';
-import { PluginUiMessageHandler } from '@cloudquery/plugin-config-ui-connector';
-import { PluginUiMessagePayload } from '@cloudquery/plugin-config-ui-connector';
+import { PaletteOptions } from '@mui/material/styles/createPalette';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { Shadows } from '@mui/material/styles';
@@ -114,7 +109,7 @@ export const createThemePaletteOptions: () => {
     divider: string;
     error: PaletteColor_2;
     info: PaletteColor_2;
-    mode: PaletteMode;
+    mode: PaletteOptions["mode"];
     neutral: ColorRange;
     primary: {
         hovered: string;
@@ -213,30 +208,6 @@ export const TreeNode: React_2.NamedExoticComponent<Props_5>;
 //
 // @public
 export function TreeRoot({ children, ...props }: Props_6): JSX_2.Element;
-
-// @public
-export function usePluginUiFormHeightChange(pluginUiMessageHandler: PluginUiMessageHandler): MutableRefObject<HTMLDivElement>;
-
-// @public
-export function usePluginUiFormInit(pluginUiMessageHandler: PluginUiMessageHandler, hideSubmitButton: boolean): {
-    initialized: boolean;
-    initialValues: {
-        migrateMode: "forced" | "safe";
-        envs: {
-            name: string;
-            value: string;
-        }[];
-        spec: Record<string, any>;
-        tables: string[];
-        writeMode: "append" | "overwrite" | "overwrite-delete-stale";
-    };
-};
-
-// Warning: (ae-forgotten-export) The symbol "Success" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "Failure" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function usePluginUiFormSubmit(onValidate: () => Promise<Success | Failure> | Success | Failure, pluginUiMessageHandler: PluginUiMessageHandler): void;
 
 // @public
 const warning: PaletteColor;
