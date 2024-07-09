@@ -2,6 +2,30 @@ import humanizeString from 'humanize-string';
 import * as Yup from 'yup';
 
 /**
+ * This function resets the default error messages of the yup validation schema.
+ *
+ * @public
+ */
+export function resetYupDefaultErrorMessages(yup: typeof Yup) {
+  yup.setLocale({
+    mixed: {
+      notType: '',
+      required: '',
+    },
+    number: {
+      integer: '',
+      max: '',
+      min: '',
+    },
+    string: {
+      email: '',
+      max: '',
+      min: '',
+    },
+  });
+}
+
+/**
  * This function returns a resolver function that can be used with react-hook-form.
  * It is using yup validation schema to validate the data and returns values when the data is valid.
  * If the data is invalid, it returns the errors with parsed messages based on the yup validation schema.
@@ -12,6 +36,8 @@ export function getYupValidationResolver<
   FieldValues extends Yup.AnyObject,
   Schema extends Yup.ObjectSchema<FieldValues>,
 >(validationSchema: Schema) {
+  resetYupDefaultErrorMessages(yup);
+
   return async (data: any) => {
     try {
       const values = await validationSchema.validate(data, {
@@ -41,25 +67,6 @@ export function getYupValidationResolver<
       };
     }
   };
-}
-
-export function resetYupDefaultErrorMessages(yup: typeof Yup) {
-  yup.setLocale({
-    mixed: {
-      notType: '',
-      required: '',
-    },
-    number: {
-      integer: '',
-      max: '',
-      min: '',
-    },
-    string: {
-      email: '',
-      max: '',
-      min: '',
-    },
-  });
 }
 
 function capitalizeText(string: string) {
