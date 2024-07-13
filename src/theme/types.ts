@@ -1,23 +1,5 @@
 import React from 'react';
 
-/**
- * Represents a color range for the Material-UI theme.
- *
- * @public
- */
-export interface ColorRange {
-  100: string;
-  200: string;
-  300: string;
-  400: string;
-  50: string;
-  500: string;
-  600: string;
-  700: string;
-  800: string;
-  900: string;
-}
-
 declare module '@mui/material/styles' {
   interface TypographyVariants {
     body1Bold: React.CSSProperties;
@@ -74,7 +56,18 @@ declare module '@mui/material/styles/createPalette' {
         content: string;
       };
     };
-    neutral: ColorRange;
+    neutral: {
+      100: string;
+      200: string;
+      300: string;
+      400: string;
+      50: string;
+      500: string;
+      600: string;
+      700: string;
+      800: string;
+      900: string;
+    };
     success: PaletteColor;
     warning: PaletteColor;
   }
@@ -110,7 +103,18 @@ declare module '@mui/material/styles/createPalette' {
         content: string;
       };
     };
-    neutral: ColorRange;
+    neutral: {
+      100: string;
+      200: string;
+      300: string;
+      400: string;
+      50: string;
+      500: string;
+      600: string;
+      700: string;
+      800: string;
+      900: string;
+    };
   }
 
   interface TypeBackground {

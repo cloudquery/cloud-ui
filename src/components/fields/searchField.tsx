@@ -20,7 +20,12 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-export function TableSelectorSearchField(props: TextFieldProps) {
+/**
+ * This component displays a search field
+ *
+ * @public
+ */
+export function SearchField(props: TextFieldProps) {
   return (
     <StyledTextField
       {...props}

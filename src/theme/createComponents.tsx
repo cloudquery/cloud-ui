@@ -662,8 +662,8 @@ export const createThemeComponents = ({
           '& .MuiRadio-root:hover': {
             background: 'none',
           },
-        }
-      }
+        },
+      },
     },
     MuiTooltip: {
       defaultProps: {

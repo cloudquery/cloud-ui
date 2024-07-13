@@ -1,8 +1,8 @@
-import { PluginTableListItem } from '../types';
+import { SyncNodePluginTableListItem } from '../types';
 
-export function handleTableSelectorSelect(
+export function handleSyncNodeTableSelectorSelect(
   selectedTables: Record<string, boolean>,
-  tableListItem: PluginTableListItem,
+  tableListItem: SyncNodePluginTableListItem,
 ) {
   const selected = {
     ...selectedTables,
@@ -11,7 +11,7 @@ export function handleTableSelectorSelect(
   if (selectedTables[tableListItem.name]) {
     delete selected[tableListItem.name];
 
-    const unselectRelationTables = (tableListItem: PluginTableListItem) => {
+    const unselectRelationTables = (tableListItem: SyncNodePluginTableListItem) => {
       if (tableListItem.relationTables.length > 0) {
         for (const relationTable of tableListItem.relationTables) {
           delete selected[relationTable.name];
@@ -35,8 +35,8 @@ export function handleTableSelectorSelect(
   return selected;
 }
 
-export function filterTableSelectorPluginTableList(
-  tableList: PluginTableListItem[],
+export function filterSyncNodeTableSelectorPluginTableList(
+  tableList: SyncNodePluginTableListItem[],
   selectedTables: Record<string, boolean>,
   searchQuery: string,
   filterTablesValue?: 'all' | 'selected' | 'unselected',
@@ -46,11 +46,11 @@ export function filterTableSelectorPluginTableList(
   }
 
   const checkIfTableIsVisible = (
-    tableListItem: PluginTableListItem,
-  ): PluginTableListItem | undefined => {
+    tableListItem: SyncNodePluginTableListItem,
+  ): SyncNodePluginTableListItem | undefined => {
     const filteredRelationTables = tableListItem.relationTables
       .map((tableListItem) => checkIfTableIsVisible(tableListItem))
-      .filter(Boolean) as PluginTableListItem[];
+      .filter(Boolean) as SyncNodePluginTableListItem[];
 
     if (filteredRelationTables.length > 0) {
       return {
@@ -71,11 +71,13 @@ export function filterTableSelectorPluginTableList(
 
   return tableList
     .map((tableListItem) => checkIfTableIsVisible(tableListItem))
-    .filter(Boolean) as PluginTableListItem[];
+    .filter(Boolean) as SyncNodePluginTableListItem[];
 }
 
-export function getTableSelectorPluginFlatTableList(pluginTables: PluginTableListItem[]) {
-  const extract = (tableListItem: PluginTableListItem) => {
+export function getSyncNodeTableSelectorPluginFlatTableList(
+  pluginTables: SyncNodePluginTableListItem[],
+) {
+  const extract = (tableListItem: SyncNodePluginTableListItem) => {
     const list = [tableListItem];
     if (tableListItem.relationTables.length > 0) {
       for (const relationTable of tableListItem.relationTables) {

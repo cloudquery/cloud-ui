@@ -6,22 +6,22 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Stack from '@mui/material/Stack';
 import useTheme from '@mui/material/styles/useTheme';
 
-import { TableSelectorFilters } from './filters';
-import { TableSelectorListItem } from './listItem';
-import { PluginTableListItem, SubscribeToTablesValueChange } from './types';
+import { SyncNodeTableSelectorFilters } from './filters';
+import { SyncNodeTableSelectorListItem } from './listItem';
+import { SyncNodePluginTableListItem, SubscribeToSyncNodeTablesValueChange } from './types';
 import {
-  filterTableSelectorPluginTableList,
-  getTableSelectorPluginFlatTableList,
-  handleTableSelectorSelect,
+  filterSyncNodeTableSelectorPluginTableList,
+  getSyncNodeTableSelectorPluginFlatTableList,
+  handleSyncNodeTableSelectorSelect,
 } from './utils';
-import { TreeRoot } from '../tree';
+import { TreeRoot } from '../../controls/tree';
 
 interface Props {
   /**
    * This function is used to subscribe to the table values change.
    * It returns a function to unsubscribe.
    */
-  subscribeToTablesValueChange: SubscribeToTablesValueChange;
+  subscribeToTablesValueChange: SubscribeToSyncNodeTablesValueChange;
   /** Error message to display if there is an error. */
   errorMessage?: string;
   /** Current selected table values. */
@@ -29,7 +29,7 @@ interface Props {
   /** Callback function to handle value changes. */
   onChange: (value: Record<string, boolean>) => void;
   /** List of tables to display in the selector. */
-  tableList: PluginTableListItem[];
+  tableList: SyncNodePluginTableListItem[];
 }
 
 /**
@@ -37,7 +37,7 @@ interface Props {
  *
  * @public
  */
-export function TableSelector({
+export function SyncNodeTableSelector({
   subscribeToTablesValueChange,
   errorMessage,
   value,
@@ -53,14 +53,14 @@ export function TableSelector({
 
   // Those refs are necessary to prevent the tree from updating on every render
   // caused by changing the "handleSelect" function
-  const filteredFlatTableListRef = useRef<PluginTableListItem[]>([]);
+  const filteredFlatTableListRef = useRef<SyncNodePluginTableListItem[]>([]);
   const allTablesSelectedRef = useRef(false);
   const selectedTablesRef = useRef<Record<string, boolean>>(value);
 
   const searchValueTrimmed = searchValue.trim().toLowerCase();
   const filteredTableList = useMemo(
     () =>
-      filterTableSelectorPluginTableList(
+      filterSyncNodeTableSelectorPluginTableList(
         tableList,
         value,
         searchValueTrimmed,
@@ -69,7 +69,7 @@ export function TableSelector({
     [filterTablesValue, searchValueTrimmed, value, tableList],
   );
   const filteredFlatTableList = useMemo(
-    () => getTableSelectorPluginFlatTableList(filteredTableList),
+    () => getSyncNodeTableSelectorPluginFlatTableList(filteredTableList),
     [filteredTableList],
   );
   const allTablesSelected = useMemo(
@@ -82,8 +82,8 @@ export function TableSelector({
   allTablesSelectedRef.current = allTablesSelected;
 
   const handleSelect = useCallback(
-    (tableListItem: PluginTableListItem) => {
-      onChange(handleTableSelectorSelect(selectedTablesRef.current, tableListItem));
+    (tableListItem: SyncNodePluginTableListItem) => {
+      onChange(handleSyncNodeTableSelectorSelect(selectedTablesRef.current, tableListItem));
     },
     [onChange],
   );
@@ -117,7 +117,7 @@ export function TableSelector({
       padding={2}
     >
       <Stack direction="row" marginBottom={2} spacing={1}>
-        <TableSelectorFilters
+        <SyncNodeTableSelectorFilters
           onSearchChange={setSearchValue}
           onTableTypeChange={setFilterTablesValue}
           searchValue={searchValue}
@@ -149,7 +149,7 @@ export function TableSelector({
         {!noResults && (
           <TreeRoot sx={{ maxWidth: '100%' }}>
             {filteredTableList.map((table) => (
-              <TableSelectorListItem
+              <SyncNodeTableSelectorListItem
                 key={`${table.parent}-${table.name}`}
                 valuesRef={selectedTablesRef}
                 subscribeToTablesValueChange={subscribeToTablesValueChange}

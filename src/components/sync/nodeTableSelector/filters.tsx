@@ -9,7 +9,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import useTheme from '@mui/material/styles/useTheme';
 
-import { TableSelectorSearchField } from './searchField';
+import { SearchField } from '../../fields/searchField';
 
 interface Props {
   onSearchChange: (value: string) => void;
@@ -18,7 +18,7 @@ interface Props {
   tableTypeValue: 'all' | 'selected' | 'unselected';
 }
 
-export function TableSelectorFilters({
+export function SyncNodeTableSelectorFilters({
   onSearchChange,
   onTableTypeChange,
   searchValue,
@@ -32,7 +32,7 @@ export function TableSelectorFilters({
 
   return (
     <>
-      <TableSelectorSearchField
+      <SearchField
         fullWidth={true}
         onChange={(e) => onSearchChange(e.target.value)}
         placeholder="Search tables"

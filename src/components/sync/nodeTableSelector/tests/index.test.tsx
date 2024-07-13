@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 import { screen, fireEvent, act } from '@testing-library/react';
 
-import { TableSelector } from '..';
-import { renderWithTheme } from '../../../utils/tests/renderWithTheme';
-import { PluginTableListItem } from '../types';
+import { SyncNodeTableSelector } from '..';
+import { renderWithTheme } from '../../../../utils/tests/renderWithTheme';
+import { SyncNodePluginTableListItem } from '../types';
 
-const mockTableList: PluginTableListItem[] = [
+const mockTableList: SyncNodePluginTableListItem[] = [
   { name: 'Table1', parent: '', relationTables: [] },
   { name: 'Table2', parent: '', relationTables: [] },
   { name: 'Table3', parent: '', relationTables: [] },
@@ -15,14 +15,14 @@ const mockTableList: PluginTableListItem[] = [
 const mockSubscribeToTablesValueChange = jest.fn();
 const mockOnChange = jest.fn();
 
-describe('TableSelector', () => {
+describe('SyncNodeTableSelector', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   test('renders without crashing', () => {
     renderWithTheme(
-      <TableSelector
+      <SyncNodeTableSelector
         subscribeToTablesValueChange={mockSubscribeToTablesValueChange}
         value={{}}
         onChange={mockOnChange}
@@ -39,7 +39,7 @@ describe('TableSelector', () => {
 
   test('filters tables based on search input', () => {
     renderWithTheme(
-      <TableSelector
+      <SyncNodeTableSelector
         subscribeToTablesValueChange={mockSubscribeToTablesValueChange}
         value={{}}
         onChange={mockOnChange}
@@ -57,7 +57,7 @@ describe('TableSelector', () => {
 
   test('selects and deselects all tables', () => {
     const { rerender } = renderWithTheme(
-      <TableSelector
+      <SyncNodeTableSelector
         subscribeToTablesValueChange={mockSubscribeToTablesValueChange}
         value={{}}
         onChange={mockOnChange}
@@ -75,7 +75,7 @@ describe('TableSelector', () => {
     });
 
     rerender(
-      <TableSelector
+      <SyncNodeTableSelector
         subscribeToTablesValueChange={mockSubscribeToTablesValueChange}
         value={{
           Table1: true,
@@ -94,7 +94,7 @@ describe('TableSelector', () => {
 
   test('handles individual table selection', () => {
     const { rerender } = renderWithTheme(
-      <TableSelector
+      <SyncNodeTableSelector
         subscribeToTablesValueChange={mockSubscribeToTablesValueChange}
         value={{}}
         onChange={mockOnChange}
@@ -108,7 +108,7 @@ describe('TableSelector', () => {
     expect(mockOnChange).toHaveBeenCalledWith({ Table1: true });
 
     rerender(
-      <TableSelector
+      <SyncNodeTableSelector
         subscribeToTablesValueChange={mockSubscribeToTablesValueChange}
         value={{ Table1: true }}
         onChange={mockOnChange}
@@ -123,7 +123,7 @@ describe('TableSelector', () => {
 
   test('displays the correct number of selected tables', () => {
     renderWithTheme(
-      <TableSelector
+      <SyncNodeTableSelector
         subscribeToTablesValueChange={mockSubscribeToTablesValueChange}
         value={{ Table1: true }}
         onChange={mockOnChange}
@@ -136,7 +136,7 @@ describe('TableSelector', () => {
 
   test('filters tables based on selected status', () => {
     renderWithTheme(
-      <TableSelector
+      <SyncNodeTableSelector
         subscribeToTablesValueChange={mockSubscribeToTablesValueChange}
         value={{ Table1: true, Table3: true }}
         onChange={mockOnChange}
@@ -154,7 +154,7 @@ describe('TableSelector', () => {
 
   test('filters tables based on unselected status', () => {
     renderWithTheme(
-      <TableSelector
+      <SyncNodeTableSelector
         subscribeToTablesValueChange={mockSubscribeToTablesValueChange}
         value={{ Table1: true }}
         onChange={mockOnChange}
@@ -185,7 +185,7 @@ describe('TableSelector', () => {
       setValueRef = setValue;
 
       return (
-        <TableSelector
+        <SyncNodeTableSelector
           subscribeToTablesValueChange={subscribeToTablesValueChange}
           value={value}
           onChange={mockOnChange}

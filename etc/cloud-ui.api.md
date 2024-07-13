@@ -6,6 +6,7 @@
 
 import { BreakpointOverrides } from '@mui/system/createTheme/createBreakpoints';
 import { Components } from '@mui/material/styles';
+import { ImgHTMLAttributes } from 'react';
 import { JSX as JSX_2 } from 'react/jsx-runtime';
 import { ListItemProps } from '@mui/material/ListItem';
 import { ListProps } from '@mui/material/List';
@@ -16,36 +17,13 @@ import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { Shadows } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
+import { TextFieldProps } from '@mui/material/TextField';
 import { ThemeOptions } from '@mui/material/styles';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 import * as Yup from 'yup';
 
 // @public
 export const breakpoints: Record<keyof BreakpointOverrides, number>;
-
-// @public
-export interface ColorRange {
-    // (undocumented)
-    100: string;
-    // (undocumented)
-    200: string;
-    // (undocumented)
-    300: string;
-    // (undocumented)
-    400: string;
-    // (undocumented)
-    50: string;
-    // (undocumented)
-    500: string;
-    // (undocumented)
-    600: string;
-    // (undocumented)
-    700: string;
-    // (undocumented)
-    800: string;
-    // (undocumented)
-    900: string;
-}
 
 declare namespace colors {
     export {
@@ -110,7 +88,18 @@ export const createThemePaletteOptions: () => {
     error: PaletteColor_2;
     info: PaletteColor_2;
     mode: PaletteOptions["mode"];
-    neutral: ColorRange;
+    neutral: {
+        100: string;
+        200: string;
+        300: string;
+        400: string;
+        50: string;
+        500: string;
+        600: string;
+        700: string;
+        800: string;
+        900: string;
+    };
     primary: {
         hovered: string;
         light: string;
@@ -147,15 +136,15 @@ export const createTypographyOptions: () => TypographyOptions;
 // @public
 const error: PaletteColor;
 
-// Warning: (ae-forgotten-export) The symbol "Props" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Props_4" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function FormFieldGroup({ children, subheader, title }: Props): JSX_2.Element;
+export function FormFieldGroup({ children, subheader, title }: Props_4): JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "Props_2" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Props_5" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function FormFieldReset({ isResetted, onReset, onCancel, inputSelectorToFocus, sx }: Props_2): JSX_2.Element;
+export function FormFieldReset({ isResetted, onReset, onCancel, inputSelectorToFocus, sx }: Props_5): JSX_2.Element;
 
 // @public
 export function getYupValidationResolver<FieldValues extends Yup.AnyObject, Schema extends Yup.ObjectSchema<FieldValues>>(validationSchema: Schema): (data: any) => Promise<{
@@ -175,13 +164,35 @@ export function getYupValidationResolver<FieldValues extends Yup.AnyObject, Sche
 const info: PaletteColor;
 
 // @public
-const neutral: ColorRange;
+export function LightboxImage(props: ImgHTMLAttributes<HTMLImageElement>): JSX_2.Element;
+
+// @public
+const neutral: {
+    100: string;
+    200: string;
+    300: string;
+    400: string;
+    50: string;
+    500: string;
+    600: string;
+    700: string;
+    800: string;
+    900: string;
+};
 
 // @public
 const primary: PaletteColor;
 
+// Warning: (ae-forgotten-export) The symbol "Props_6" needs to be exported by the entry point index.d.ts
+//
+// @public
+export function RadioGroupSelector<Value extends string | number | boolean>({ onChange, title, value, items, }: Props_6<Value>): JSX_2.Element;
+
 // @public
 export function resetYupDefaultErrorMessages(yup: typeof Yup): void;
+
+// @public
+export function SearchField(props: TextFieldProps): JSX_2.Element;
 
 // @public
 const secondary: PaletteColor;
@@ -189,25 +200,30 @@ const secondary: PaletteColor;
 // @public
 const success: PaletteColor;
 
+// Warning: (ae-forgotten-export) The symbol "Props_7" needs to be exported by the entry point index.d.ts
+//
+// @public
+export function SyncNodeTableSelector({ subscribeToTablesValueChange, errorMessage, value, onChange, tableList, }: Props_7): JSX_2.Element;
+
+// Warning: (ae-forgotten-export) The symbol "Props_8" needs to be exported by the entry point index.d.ts
+//
+// @public
+export function SyncNodeTestConnectionStatus({ failureReason, isLoading, onCancel, onSuccess, }: Props_8): JSX_2.Element;
+
+// Warning: (ae-forgotten-export) The symbol "Props" needs to be exported by the entry point index.d.ts
+//
+// @public
+export const TreeGroup: React_2.NamedExoticComponent<Props>;
+
+// Warning: (ae-forgotten-export) The symbol "Props_2" needs to be exported by the entry point index.d.ts
+//
+// @public
+export const TreeNode: React_2.NamedExoticComponent<Props_2>;
+
 // Warning: (ae-forgotten-export) The symbol "Props_3" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function TableSelector({ subscribeToTablesValueChange, errorMessage, value, onChange, tableList, }: Props_3): JSX_2.Element;
-
-// Warning: (ae-forgotten-export) The symbol "Props_4" needs to be exported by the entry point index.d.ts
-//
-// @public
-export const TreeGroup: React_2.NamedExoticComponent<Props_4>;
-
-// Warning: (ae-forgotten-export) The symbol "Props_5" needs to be exported by the entry point index.d.ts
-//
-// @public
-export const TreeNode: React_2.NamedExoticComponent<Props_5>;
-
-// Warning: (ae-forgotten-export) The symbol "Props_6" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function TreeRoot({ children, ...props }: Props_6): JSX_2.Element;
+export function TreeRoot({ children, ...props }: Props_3): JSX_2.Element;
 
 // @public
 const warning: PaletteColor;

@@ -1,5 +1,6 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const MergeFilesPlugin = require('./merge-files-plugin');
 
 module.exports = {
   entry: './src/index.ts',
@@ -34,6 +35,12 @@ module.exports = {
     /^@emotion\/styled.*/,
     'yup',
     'humanize-string',
+  ],
+  plugins: [
+    new MergeFilesPlugin({
+      sourceFile: './lib/theme/types.d.ts', 
+      targetFile: 'index.d.ts'
+    })
   ],
   optimization: {
     minimizer: [new TerserPlugin({

@@ -1,13 +1,11 @@
 import { PaletteColor } from '@mui/material/styles/createPalette';
 
-import { ColorRange } from './types';
-
 /**
  * Neutral colors for Material-UI theme
  *
  * @public
  */
-export const neutral: ColorRange = {
+export const neutral = {
   100: '#F3F4F6',
   200: '#E5E7EB',
   300: '#D2D6DB',

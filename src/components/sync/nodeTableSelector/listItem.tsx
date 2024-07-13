@@ -4,18 +4,18 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Stack from '@mui/material/Stack';
 
-import { PluginTableListItem, SubscribeToTablesValueChange } from './types';
-import { TreeGroup, TreeNode } from '../tree';
+import { SyncNodePluginTableListItem, SubscribeToSyncNodeTablesValueChange } from './types';
+import { TreeGroup, TreeNode } from '../../controls/tree';
 
 interface Props {
   valuesRef: React.MutableRefObject<Record<string, boolean>>;
-  onSelect: (tableListItem: PluginTableListItem) => void;
+  onSelect: (tableListItem: SyncNodePluginTableListItem) => void;
   selectedAsIndeterminate: boolean;
-  tableListItem: PluginTableListItem;
-  subscribeToTablesValueChange: SubscribeToTablesValueChange;
+  tableListItem: SyncNodePluginTableListItem;
+  subscribeToTablesValueChange: SubscribeToSyncNodeTablesValueChange;
 }
 
-const _TableSelectorListItem: FC<Props> = ({
+const _SyncNodeTableSelectorListItem: FC<Props> = ({
   valuesRef,
   subscribeToTablesValueChange,
   onSelect,
@@ -70,7 +70,7 @@ const _TableSelectorListItem: FC<Props> = ({
       {tableListItem.relationTables.length > 0 && (
         <TreeGroup sx={{ padding: 0 }}>
           {tableListItem.relationTables.map((relationTable) => (
-            <TableSelectorListItem
+            <SyncNodeTableSelectorListItem
               key={`${relationTable.parent}-${relationTable.name}`}
               onSelect={onSelect}
               valuesRef={valuesRef}
@@ -85,4 +85,4 @@ const _TableSelectorListItem: FC<Props> = ({
   );
 };
 
-export const TableSelectorListItem = React.memo(_TableSelectorListItem);
+export const SyncNodeTableSelectorListItem = React.memo(_SyncNodeTableSelectorListItem);
