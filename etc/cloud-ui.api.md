@@ -136,15 +136,15 @@ export const createTypographyOptions: () => TypographyOptions;
 // @public
 const error: PaletteColor;
 
-// Warning: (ae-forgotten-export) The symbol "Props_4" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function FormFieldGroup({ children, subheader, title }: Props_4): JSX_2.Element;
-
 // Warning: (ae-forgotten-export) The symbol "Props_5" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function FormFieldReset({ isResetted, onReset, onCancel, inputSelectorToFocus, sx }: Props_5): JSX_2.Element;
+export function FormFieldGroup({ children, subheader, title }: Props_5): JSX_2.Element;
+
+// Warning: (ae-forgotten-export) The symbol "Props_6" needs to be exported by the entry point index.d.ts
+//
+// @public
+export function FormFieldReset({ isResetted, onReset, onCancel, inputSelectorToFocus, sx }: Props_6): JSX_2.Element;
 
 // @public
 export function getYupValidationResolver<FieldValues extends Yup.AnyObject, Schema extends Yup.ObjectSchema<FieldValues>>(validationSchema: Schema): (data: any) => Promise<{
@@ -183,10 +183,10 @@ const neutral: {
 // @public
 const primary: PaletteColor;
 
-// Warning: (ae-forgotten-export) The symbol "Props_6" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Props_4" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function RadioGroupSelector<Value extends string | number | boolean>({ onChange, title, value, items, }: Props_6<Value>): JSX_2.Element;
+export function RadioGroupSelector<Value extends string | number | boolean>({ onChange, title, value, items, }: Props_4<Value>): JSX_2.Element;
 
 // @public
 export function resetYupDefaultErrorMessages(yup: typeof Yup): void;

@@ -41,8 +41,8 @@ export function RadioGroupSelector<Value extends string | number | boolean>({
       aria-label={title}
       color="primary"
       exclusive={true}
-      onChange={(_, newValue) => {
-        if (newValue !== null) {
+      onChange={(event, newValue) => {
+        if (event.type === 'click' && newValue !== null) {
           onChange(newValue);
         }
       }}
@@ -58,6 +58,9 @@ export function RadioGroupSelector<Value extends string | number | boolean>({
               disabled={item.disabled}
               fullWidth={true}
               value={item.value}
+              sx={{
+                padding: item.subtitle ? undefined : '2px',
+              }}
             >
               <Radio checked={isSelected} />
               <Stack marginLeft={0.5} paddingY={1.25} spacing={0.5}>
