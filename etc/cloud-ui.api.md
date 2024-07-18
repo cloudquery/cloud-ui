@@ -6,18 +6,10 @@
 
 import { BreakpointOverrides } from '@mui/system/createTheme/createBreakpoints';
 import { Components } from '@mui/material/styles';
-import { ImgHTMLAttributes } from 'react';
-import { JSX as JSX_2 } from 'react/jsx-runtime';
-import { ListItemProps } from '@mui/material/ListItem';
-import { ListProps } from '@mui/material/List';
 import { PaletteColor } from '@mui/material/styles/createPalette';
 import { PaletteColor as PaletteColor_2 } from '@mui/material/styles';
 import { PaletteOptions } from '@mui/material/styles/createPalette';
-import { default as React_2 } from 'react';
-import { ReactNode } from 'react';
 import { Shadows } from '@mui/material/styles';
-import { SxProps } from '@mui/system';
-import { TextFieldProps } from '@mui/material/TextField';
 import { ThemeOptions } from '@mui/material/styles';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 import * as Yup from 'yup';
@@ -136,16 +128,6 @@ export const createTypographyOptions: () => TypographyOptions;
 // @public
 const error: PaletteColor;
 
-// Warning: (ae-forgotten-export) The symbol "Props_5" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function FormFieldGroup({ children, subheader, title }: Props_5): JSX_2.Element;
-
-// Warning: (ae-forgotten-export) The symbol "Props_6" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function FormFieldReset({ isResetted, onReset, onCancel, inputSelectorToFocus, sx }: Props_6): JSX_2.Element;
-
 // @public
 export function getYupValidationResolver<FieldValues extends Yup.AnyObject, Schema extends Yup.ObjectSchema<FieldValues>>(validationSchema: Schema): (data: any) => Promise<{
     errors: {};
@@ -164,9 +146,6 @@ export function getYupValidationResolver<FieldValues extends Yup.AnyObject, Sche
 const info: PaletteColor;
 
 // @public
-export function LightboxImage(props: ImgHTMLAttributes<HTMLImageElement>): JSX_2.Element;
-
-// @public
 const neutral: {
     100: string;
     200: string;
@@ -183,47 +162,14 @@ const neutral: {
 // @public
 const primary: PaletteColor;
 
-// Warning: (ae-forgotten-export) The symbol "Props_4" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function RadioGroupSelector<Value extends string | number | boolean>({ onChange, title, value, items, }: Props_4<Value>): JSX_2.Element;
-
 // @public
 export function resetYupDefaultErrorMessages(yup: typeof Yup): void;
-
-// @public
-export function SearchField(props: TextFieldProps): JSX_2.Element;
 
 // @public
 const secondary: PaletteColor;
 
 // @public
 const success: PaletteColor;
-
-// Warning: (ae-forgotten-export) The symbol "Props_7" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function SyncNodeTableSelector({ subscribeToTablesValueChange, errorMessage, value, onChange, tableList, }: Props_7): JSX_2.Element;
-
-// Warning: (ae-forgotten-export) The symbol "Props_8" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function SyncNodeTestConnectionStatus({ failureReason, isLoading, onCancel, onSuccess, }: Props_8): JSX_2.Element;
-
-// Warning: (ae-forgotten-export) The symbol "Props" needs to be exported by the entry point index.d.ts
-//
-// @public
-export const TreeGroup: React_2.NamedExoticComponent<Props>;
-
-// Warning: (ae-forgotten-export) The symbol "Props_2" needs to be exported by the entry point index.d.ts
-//
-// @public
-export const TreeNode: React_2.NamedExoticComponent<Props_2>;
-
-// Warning: (ae-forgotten-export) The symbol "Props_3" needs to be exported by the entry point index.d.ts
-//
-// @public
-export function TreeRoot({ children, ...props }: Props_3): JSX_2.Element;
 
 // @public
 const warning: PaletteColor;
