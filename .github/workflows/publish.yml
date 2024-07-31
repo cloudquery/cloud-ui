@@ -1,0 +1,72 @@
+name: Publish npm package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.18.0'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Get package name and current version from package.json
+      id: get_package_info
+      run: |
+        PACKAGE_NAME=$(jq -r .name < package.json)
+        PACKAGE_VERSION=$(jq -r .version < package.json)
+        echo "::set-output name=package_name::$PACKAGE_NAME"
+        echo "::set-output name=current_version::$PACKAGE_VERSION"
+
+    - name: Get latest published version from npm
+      id: get_latest_npm_version
+      run: echo "::set-output name=latest_npm_version::$(npm view ${{ steps.get_package_info.outputs.package_name }} version)"
+
+    - name: Check if version changed
+      id: check_version
+      run: |
+        echo "Latest npm version: ${{ steps.get_latest_npm_version.outputs.latest_npm_version }}"
+        echo "Current package.json version: ${{ steps.get_package_info.outputs.current_version }}"
+        if [ "${{ steps.get_latest_npm_version.outputs.latest_npm_version }}" != "${{ steps.get_package_info.outputs.current_version }}" ]; then
+          echo "Version has changed"
+          echo "::set-output name=version_changed::true"
+        else
+          echo "Version has not changed"
+          echo "::set-output name=version_changed::false"
+        fi
+
+    - name: Run tests
+      if: steps.check_version.outputs.version_changed == 'true'
+      run: npm test
+
+    - name: Build package
+      if: steps.check_version.outputs.version_changed == 'true'
+      run: npm run build
+
+    - name: Ensure no untracked changes after build
+      if: steps.check_version.outputs.version_changed == 'true'
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "Untracked changes found after build"
+          exit 1
+        else
+          echo "No untracked changes"
+        fi
+
+    - name: Publish to npm
+      if: steps.check_version.outputs.version_changed == 'true'
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
