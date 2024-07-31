@@ -19,9 +19,6 @@ jobs:
         node-version: '18.18.0'
         registry-url: 'https://registry.npmjs.org'
 
-    - name: Install dependencies
-      run: npm install
-
     - name: Get package name and current version from package.json
       id: get_package_info
       run: |
@@ -46,6 +43,10 @@ jobs:
           echo "Version has not changed"
           echo "::set-output name=version_changed::false"
         fi
+
+    - name: Install dependencies
+      if: steps.check_version.outputs.version_changed == 'true'
+      run: npm install
 
     - name: Run tests
       if: steps.check_version.outputs.version_changed == 'true'
