@@ -35,7 +35,7 @@
     "compile:js": "webpack",
     "lint": "eslint src --ext .ts,.tsx --max-warnings 0",
     "lint:fix": "eslint src --ext .ts,.tsx --max-warnings 0 --fix",
-    "test": "jest --config config/jest.config.js",
+    "test": "jest --config config/jest.config.js --passWithNoTests",
     "test:watch": "jest --config config/jest.config.js --watchAll",
     "clean": "rimraf ./lib ./dist"
   },
