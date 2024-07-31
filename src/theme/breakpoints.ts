@@ -11,5 +11,5 @@ export const breakpoints: Record<keyof BreakpointOverrides, number> = {
   md: 768,
   lg: 992,
   xl: 1200,
-  xxl: 1920,
+  xxl: 1640,
 };

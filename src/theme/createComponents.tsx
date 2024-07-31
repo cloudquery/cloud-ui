@@ -683,6 +683,11 @@ export const createThemeComponents = ({
           body1Bold: 'p',
         },
       },
+      styleOverrides: {
+      root: {
+          maxWidth: '700px'
+        
+      }}
     },
     MuiBackdrop: {
       styleOverrides: {
