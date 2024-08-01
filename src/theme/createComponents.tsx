@@ -684,10 +684,12 @@ export const createThemeComponents = ({
         },
       },
       styleOverrides: {
-      root: {
-          maxWidth: '700px'
-        
-      }}
+        root: {
+          [muiTheme.breakpoints.up("xxl")]: {
+            maxWidth: '700px',
+            margin: 'auto'
+          }
+        }}
     },
     MuiBackdrop: {
       styleOverrides: {
