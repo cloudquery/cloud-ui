@@ -683,13 +683,6 @@ export const createThemeComponents = ({
           body1Bold: 'p',
         },
       },
-      styleOverrides: {
-        root: {
-          [muiTheme.breakpoints.up("xxl")]: {
-            maxWidth: '700px',
-            margin: 'auto'
-          }
-        }}
     },
     MuiBackdrop: {
       styleOverrides: {
