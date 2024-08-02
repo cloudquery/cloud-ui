@@ -6,9 +6,11 @@
 
 import { BreakpointOverrides } from '@mui/system/createTheme/createBreakpoints';
 import { Components } from '@mui/material/styles';
+import { JSX as JSX_2 } from 'react/jsx-runtime';
 import { PaletteColor } from '@mui/material/styles/createPalette';
 import { PaletteColor as PaletteColor_2 } from '@mui/material/styles';
 import { PaletteOptions } from '@mui/material/styles/createPalette';
+import { ReactNode } from 'react';
 import { Shadows } from '@mui/material/styles';
 import { ThemeOptions } from '@mui/material/styles';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
@@ -127,6 +129,9 @@ export const createTypographyOptions: () => TypographyOptions;
 
 // @public
 const error: PaletteColor;
+
+// @public (undocumented)
+export function getFieldHelperText(errorMessage: string | undefined, helperText: string | ReactNode): string | number | boolean | Iterable<ReactNode> | JSX_2.Element;
 
 // @public
 export function getYupValidationResolver<FieldValues extends Yup.AnyObject, Schema extends Yup.ObjectSchema<FieldValues>>(validationSchema: Schema): (data: any) => Promise<{
