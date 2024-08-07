@@ -681,6 +681,7 @@ export const createThemeComponents = ({
       defaultProps: {
         variantMapping: {
           body1Bold: 'p',
+          body2Bold: 'p',
         },
       },
     },

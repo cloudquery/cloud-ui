@@ -3,10 +3,12 @@ import React from 'react';
 declare module '@mui/material/styles' {
   interface TypographyVariants {
     body1Bold: React.CSSProperties;
+    body2Bold: React.CSSProperties;
     tableHeader: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
     body1Bold?: React.CSSProperties;
+    body2Bold?: React.CSSProperties;
     tableHeader?: React.CSSProperties;
   }
 }
@@ -14,6 +16,7 @@ declare module '@mui/material/styles' {
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     body1Bold: true;
+    body2Bold: true;
     tableHeader: true;
   }
 }

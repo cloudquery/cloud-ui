@@ -27,6 +27,11 @@ export const createTypographyOptions = (): TypographyOptions => {
       fontWeight: 400,
       lineHeight: 1.57,
     },
+    body2Bold: {
+      fontSize: '0.875rem',
+      fontWeight: 600,
+      lineHeight: 1.57,
+    },
     button: {
       fontWeight: 600,
     },
