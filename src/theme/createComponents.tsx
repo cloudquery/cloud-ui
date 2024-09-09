@@ -115,6 +115,12 @@ export const createThemeComponents = ({
     },
     MuiButton: {
       styleOverrides: {
+        contained: {
+          color: paletteOptions.secondary.darkest,
+        },
+        containedSecondary: {
+          color: paletteOptions.secondary.contrastText,
+        },
         outlinedSecondary: {
           color: paletteOptions.text.secondary,
         },
@@ -130,7 +136,7 @@ export const createThemeComponents = ({
         root: {
           borderRadius: '12px',
           textTransform: 'none',
-          [`&.${buttonClasses.textSecondary}`]: {
+          [`&.${buttonClasses.text}.${buttonClasses.colorSecondary}`]: {
             color: paletteOptions.text.secondary,
           },
         },
@@ -277,6 +283,14 @@ export const createThemeComponents = ({
               ? alpha(paletteOptions.warning.main, 0.5)
               : undefined,
         }),
+        filled: {
+          color: paletteOptions.secondary.darkest,
+        },
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        filledDefault: {
+          color: paletteOptions.text.primary,
+        },
         icon: {
           color: paletteOptions.action.active,
         },

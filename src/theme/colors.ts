@@ -25,11 +25,12 @@ export const neutral = {
  */
 export const primary: PaletteColor = {
   contrastText: '#FFFFFF',
-  dark: '#087443',
-  darkest: '#084C2E',
-  light: '#EDFCF2',
-  lightest: '#F6FEF9',
-  main: '#16B364',
+  dark: '#109962',
+  darkest: '#076753',
+  darkestBg: '#022723',
+  light: '#6EE792',
+  lightest: '#CFFBD3',
+  main: '#17B264',
 };
 
 /**
