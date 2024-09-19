@@ -1,4 +1,4 @@
-import { BreakpointOverrides } from '@mui/system/createTheme/createBreakpoints';
+import { BreakpointOverrides } from '@mui/system/createBreakpoints/createBreakpoints';
 
 /**
  * Breakpoints for Material-UI theme

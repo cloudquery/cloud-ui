@@ -31,10 +31,6 @@ module.exports = {
     /^@mui\/icons-material.*/,
     /^@mui\/lab.*/,
     /^@mui\/system.*/,
-    /^@emotion\/react.*/,
-    /^@emotion\/styled.*/,
-    'yup',
-    'humanize-string',
   ],
   plugins: [
     new MergeFilesPlugin({

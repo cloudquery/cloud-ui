@@ -28,7 +28,7 @@ declare module '@mui/material/styles/createTypography' {
   }
 }
 
-declare module '@mui/system/createTheme/createBreakpoints' {
+declare module '@mui/system/createBreakpoints/createBreakpoints' {
   interface BreakpointOverrides {
     lg: true;
     md: true;
@@ -79,6 +79,7 @@ declare module '@mui/material/styles/createPalette' {
     darkest?: string;
     hovered?: string;
     lightest?: string;
+    darkestBg?: string;
   }
 
   interface SimplePaletteColorOptions {

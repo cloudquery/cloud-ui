@@ -63,7 +63,7 @@ export const createThemePaletteOptions = () => {
     text: {
       disabled: alpha('#FFFFFF', 0.48),
       primary: '#EDF2F7',
-      secondary: '#ACB1B9',
+      secondary: '#C8CBD0',
     },
     warning,
   };
