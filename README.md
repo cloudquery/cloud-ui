@@ -169,14 +169,6 @@ To build the library, run:
 npm run build
 ```
 
-### Running Tests
-
-To run the test suite, execute:
-
-```bash
-npm test
-```
-
 ## Contributing
 
 If you encounter any issues or have feature requests, please feel free to open an issue on the [GitHub repository](https://github.com/cloudquery/cloud-ui/issues).
