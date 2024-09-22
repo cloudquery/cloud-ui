@@ -1,32 +1,22 @@
-const fs = require('fs');
-const path = require('path');
+// mergeFilesPlugin.js
+import fs from 'fs';
+import path from 'path';
 
-class MergeFilesPlugin {
-  constructor(options) {
-    this.options = options;
-  }
+export default function mergeFilesPlugin(options) {
+  return {
+    name: 'merge-files-plugin',
+    generateBundle(outputOptions) {
+      const { sourceFile, targetFile } = options;
+      const sourceFilePath = path.resolve(process.cwd(), sourceFile);
+      const outputDir = outputOptions.dir || path.dirname(outputOptions.file);
+      const targetFilePath = path.resolve(outputDir, targetFile);
 
-  apply(compiler) {
-    compiler.hooks.emit.tapAsync('MergeFilesPlugin', (compilation, callback) => {
-      const { sourceFile, targetFile } = this.options;
-      const sourceFilePath = path.resolve(compiler.options.context, sourceFile);
-      const targetFilePath = path.resolve(compiler.options.output.path, targetFile);
-
-      fs.readFile(sourceFilePath, 'utf8', (err, sourceContent) => {
-        if (err) {
-          compilation.errors.push(err);
-          return callback();
-        }
-
-        fs.appendFile(targetFilePath, sourceContent, 'utf8', appendErr => {
-          if (appendErr) {
-            compilation.errors.push(appendErr);
-          }
-          callback();
-        });
-      });
-    });
-  }
+      try {
+        const sourceContent = fs.readFileSync(sourceFilePath, 'utf8');
+        fs.appendFileSync(targetFilePath, sourceContent, 'utf8');
+      } catch (err) {
+        this.error(`Error in mergeFilesPlugin: ${err.message}`);
+      }
+    },
+  };
 }
-
-module.exports = MergeFilesPlugin;

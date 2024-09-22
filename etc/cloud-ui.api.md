@@ -6,8 +6,6 @@
 
 import { BreakpointOverrides } from '@mui/system/createBreakpoints/createBreakpoints';
 import { Components } from '@mui/material/styles';
-import { PaletteColor } from '@mui/material/styles/createPalette';
-import { PaletteColor as PaletteColor_2 } from '@mui/material/styles';
 import { PaletteOptions } from '@mui/material/styles/createPalette';
 import { Shadows } from '@mui/material/styles';
 import { ThemeOptions } from '@mui/material/styles';
@@ -76,8 +74,22 @@ export const createThemePaletteOptions: () => {
         white: "#fff";
     };
     divider: string;
-    error: PaletteColor_2;
-    info: PaletteColor_2;
+    error: {
+        contrastText: string;
+        dark: string;
+        darkest: string;
+        light: string;
+        lightest: string;
+        main: string;
+    };
+    info: {
+        contrastText: string;
+        dark: string;
+        darkest: string;
+        light: string;
+        lightest: string;
+        main: string;
+    };
     mode: PaletteOptions["mode"];
     neutral: {
         100: string;
@@ -93,31 +105,44 @@ export const createThemePaletteOptions: () => {
     };
     primary: {
         hovered: string;
-        light: string;
-        main: string;
-        dark: string;
         contrastText: string;
-        darkest?: string;
-        lightest?: string;
-        darkestBg?: string;
+        dark: string;
+        darkest: string;
+        darkestBg: string;
+        light: string;
+        lightest: string;
+        main: string;
     };
     secondary: {
         hovered: string;
-        light: string;
-        main: string;
-        dark: string;
         contrastText: string;
-        darkest?: string;
-        lightest?: string;
-        darkestBg?: string;
+        dark: string;
+        darkest: string;
+        light: string;
+        lightest: string;
+        main: string;
     };
-    success: PaletteColor_2;
+    success: {
+        contrastText: string;
+        dark: string;
+        darkest: string;
+        light: string;
+        lightest: string;
+        main: string;
+    };
     text: {
         disabled: string;
         primary: string;
         secondary: string;
     };
-    warning: PaletteColor_2;
+    warning: {
+        contrastText: string;
+        dark: string;
+        darkest: string;
+        light: string;
+        lightest: string;
+        main: string;
+    };
 };
 
 // @public
@@ -127,10 +152,24 @@ export const createThemeShadows: () => Shadows;
 export const createTypographyOptions: () => TypographyOptions;
 
 // @public
-const error: PaletteColor;
+const error: {
+    contrastText: string;
+    dark: string;
+    darkest: string;
+    light: string;
+    lightest: string;
+    main: string;
+};
 
 // @public
-const info: PaletteColor;
+const info: {
+    contrastText: string;
+    dark: string;
+    darkest: string;
+    light: string;
+    lightest: string;
+    main: string;
+};
 
 // @public
 const neutral: {
@@ -147,16 +186,45 @@ const neutral: {
 };
 
 // @public
-const primary: PaletteColor;
+const primary: {
+    contrastText: string;
+    dark: string;
+    darkest: string;
+    darkestBg: string;
+    light: string;
+    lightest: string;
+    main: string;
+};
 
 // @public
-const secondary: PaletteColor;
+const secondary: {
+    contrastText: string;
+    dark: string;
+    darkest: string;
+    light: string;
+    lightest: string;
+    main: string;
+};
 
 // @public
-const success: PaletteColor;
+const success: {
+    contrastText: string;
+    dark: string;
+    darkest: string;
+    light: string;
+    lightest: string;
+    main: string;
+};
 
 // @public
-const warning: PaletteColor;
+const warning: {
+    contrastText: string;
+    dark: string;
+    darkest: string;
+    light: string;
+    lightest: string;
+    main: string;
+};
 
 // (No @packageDocumentation comment for this package)
 

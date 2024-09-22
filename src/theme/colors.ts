@@ -1,5 +1,3 @@
-import { PaletteColor } from '@mui/material/styles/createPalette';
-
 /**
  * Neutral colors for Material-UI theme
  *
@@ -23,7 +21,7 @@ export const neutral = {
  *
  * @public
  */
-export const primary: PaletteColor = {
+export const primary = {
   contrastText: '#FFFFFF',
   dark: '#109962',
   darkest: '#076753',
@@ -38,7 +36,7 @@ export const primary: PaletteColor = {
  *
  * @public
  */
-export const secondary: PaletteColor = {
+export const secondary = {
   contrastText: '#FFFFFF',
   dark: '#2F3746',
   darkest: '#111927',
@@ -52,7 +50,7 @@ export const secondary: PaletteColor = {
  *
  * @public
  */
-export const error: PaletteColor = {
+export const error = {
   contrastText: '#FFFFFF',
   dark: '#B42318',
   darkest: '#7A271A',
@@ -66,7 +64,7 @@ export const error: PaletteColor = {
  *
  * @public
  */
-export const warning: PaletteColor = {
+export const warning = {
   contrastText: '#FFFFFF',
   dark: '#B54708',
   darkest: '#7A2E0E',
@@ -80,7 +78,7 @@ export const warning: PaletteColor = {
  *
  * @public
  */
-export const info: PaletteColor = {
+export const info = {
   contrastText: '#FFFFFF',
   dark: '#0E7090',
   darkest: '#164C63',
@@ -94,7 +92,7 @@ export const info: PaletteColor = {
  *
  * @public
  */
-export const success: PaletteColor = {
+export const success = {
   contrastText: '#FFFFFF',
   dark: '#107569',
   darkest: '#134E48',
