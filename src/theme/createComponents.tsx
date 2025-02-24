@@ -303,10 +303,8 @@ export const createThemeComponents = ({
           [`&:last-child`]: {
             paddingRight: 24,
           },
-          paddingBottom: 0,
-          paddingTop: 0,
           borderBottom: 'none',
-          padding: '13px 16px',
+          padding: '0 16px',
           whiteSpace: 'nowrap',
         },
       },
@@ -325,9 +323,9 @@ export const createThemeComponents = ({
           [`.${tableCellClasses.root}:last-of-type`]: {
             borderTopRightRadius: '8px',
           },
-          borderBottom: 'none',
+          backgroundColor: 'transparent',
+          borderBottom: `1px solid ${paletteOptions.divider}`,
           borderTopLeftRadius: 8,
-          backgroundColor: paletteOptions.background.paperTertiary,
           [`& .${tableCellClasses.root}`]: {
             color: paletteOptions.text.secondary,
             borderBottom: 'none',
