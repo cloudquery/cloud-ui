@@ -20,6 +20,10 @@ import '@mui/lab/themeAugmentation';
 
 const muiTheme = createMuiTheme();
 
+const sizing = {
+  tableRowHeight: 43,
+};
+
 /**
  * Creates and returns component overrides for a Material-UI theme.
  *
@@ -156,6 +160,17 @@ export const createThemeComponents = ({
           lineHeight: '170%',
         },
       },
+      variants: [
+        {
+          props: {
+            color: 'inherit',
+            variant: 'contained',
+          },
+          style: {
+            backgroundColor: paletteOptions.grey?.[300],
+          },
+        },
+      ],
     },
     MuiCard: {
       styleOverrides: {
@@ -173,6 +188,196 @@ export const createThemeComponents = ({
             paddingBottom: '24px',
           },
           padding: '24px 24px',
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          height: '24px',
+          '& span': {
+            fontFeatureSettings: "'clig' off",
+            letterSpacing: '0.16px',
+            lineHeight: '18px',
+            paddingLeft: '10px',
+            paddingRight: '10px',
+          },
+          borderRadius: '12px',
+          fontWeight: 500,
+          paddingBottom: '3px',
+          paddingTop: '3px',
+        },
+        colorSuccess: (props) => ({
+          backgroundColor:
+            props.ownerState.variant === 'filled' ? paletteOptions.success.main : undefined,
+          borderColor:
+            props.ownerState.variant === 'outlined' ? paletteOptions.success.main : undefined,
+        }),
+        colorWarning: (props) => ({
+          backgroundColor:
+            props.ownerState.variant === 'filled' ? paletteOptions.warning.main : undefined,
+          borderColor:
+            props.ownerState.variant === 'outlined'
+              ? alpha(paletteOptions.warning.main, 0.5)
+              : undefined,
+        }),
+        filled: {
+          color: paletteOptions.secondary.darkest,
+        },
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        filledDefault: {
+          color: paletteOptions.text.primary,
+        },
+        icon: {
+          color: paletteOptions.action.active,
+        },
+      },
+    },
+    MuiDataGrid: {
+      styleOverrides: {
+        columnHeader: {
+          borderRadius: '8px 8px 0 0 ',
+          padding: '0px 8px',
+        },
+        filterForm: {
+          alignItems: 'flex-end',
+        },
+        root: {
+          '& .MuiDataGrid-cell': {
+            backgroundColor: paletteOptions.background.table,
+            height: sizing.tableRowHeight,
+            paddingBottom: 0,
+            paddingTop: 0,
+          },
+          '& .MuiDataGrid-columnSeparator': {
+            display: 'none',
+          },
+          '& .MuiDataGrid-withBorderColor': {
+            borderColor: paletteOptions.divider,
+          },
+          ['--DataGrid-rowBorderColor']: paletteOptions.divider,
+          borderRadius: 1.5,
+        },
+        row: {
+          '&.Mui-selected': {
+            '&:hover': {
+              backgroundColor: paletteOptions.primary.hovered,
+            },
+            backgroundColor: 'unset',
+          },
+        },
+      },
+    },
+    MuiDialog: {
+      defaultProps: {
+        onClick: (event) => event.stopPropagation(),
+      },
+      styleOverrides: {
+        paper: {
+          borderRadius: '20px',
+          maxWidth: 600,
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: paletteOptions.background.paper,
+        },
+      },
+    },
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          backgroundColor: paletteOptions.background.table,
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          [`&:first-of-type`]: {
+            paddingLeft: 24,
+          },
+          [`&:last-child`]: {
+            paddingRight: 24,
+          },
+          paddingBottom: 0,
+          paddingTop: 0,
+          borderBottom: 'none',
+          padding: '13px 16px',
+          whiteSpace: 'nowrap',
+        },
+      },
+    },
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          height: sizing.tableRowHeight,
+          [`.${tableCellClasses.root}`]: {
+            paddingBottom: 0,
+            paddingTop: 0,
+          },
+          [`.${tableCellClasses.root}:first-of-type`]: {
+            borderTopLeftRadius: '8px',
+          },
+          [`.${tableCellClasses.root}:last-of-type`]: {
+            borderTopRightRadius: '8px',
+          },
+          borderBottom: 'none',
+          borderTopLeftRadius: 8,
+          backgroundColor: paletteOptions.background.paperTertiary,
+          [`& .${tableCellClasses.root}`]: {
+            color: paletteOptions.text.secondary,
+            borderBottom: 'none',
+            fontSize: 12,
+            fontWeight: 600,
+            letterSpacing: 0.5,
+            lineHeight: 1,
+            padding: 16,
+            textTransform: 'uppercase',
+          },
+          [`& .${tableCellClasses.root}:first-of-type`]: {
+            paddingLeft: 24,
+          },
+          [`& .${tableCellClasses.root}:last-child`]: {
+            paddingRight: 24,
+          },
+          [`& .${tableCellClasses.paddingCheckbox}`]: {
+            paddingBottom: 4,
+            paddingTop: 4,
+          },
+        },
+      },
+    },
+    MuiTablePagination: {
+      styleOverrides: {
+        root: {
+          backgroundColor: paletteOptions.background.table,
+          bottom: 0,
+          flexShrink: 0,
+          position: 'sticky',
+        },
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          height: sizing.tableRowHeight,
+          [`&:last-of-type:not(.${tableRowClasses.head}) .${tableCellClasses.root}:first-of-type`]:
+            {
+              borderBottomLeftRadius: '8px',
+            },
+          [`&:last-of-type:not(.${tableRowClasses.head}) .${tableCellClasses.root}:last-of-type`]: {
+            borderBottomRightRadius: '8px',
+          },
+          [`&.${tableRowClasses.hover}`]: {
+            cursor: 'pointer',
+          },
+          '&:not(:last-child)': {
+            borderBottom: `1px solid ${paletteOptions.divider}`,
+          },
         },
       },
     },
@@ -251,48 +456,6 @@ export const createThemeComponents = ({
       styleOverrides: {
         sizeSmall: {
           padding: '7px',
-        },
-      },
-    },
-    MuiChip: {
-      styleOverrides: {
-        root: {
-          '& span': {
-            fontFeatureSettings: "'clig' off",
-            letterSpacing: '0.16px',
-            lineHeight: '18px',
-            paddingLeft: '10px',
-            paddingRight: '10px',
-          },
-          borderRadius: '12px',
-          fontWeight: 500,
-          paddingBottom: '3px',
-          paddingTop: '3px',
-        },
-        colorSuccess: (props) => ({
-          backgroundColor:
-            props.ownerState.variant === 'filled' ? paletteOptions.success.main : undefined,
-          borderColor:
-            props.ownerState.variant === 'outlined' ? paletteOptions.success.main : undefined,
-        }),
-        colorWarning: (props) => ({
-          backgroundColor:
-            props.ownerState.variant === 'filled' ? paletteOptions.warning.main : undefined,
-          borderColor:
-            props.ownerState.variant === 'outlined'
-              ? alpha(paletteOptions.warning.main, 0.5)
-              : undefined,
-        }),
-        filled: {
-          color: paletteOptions.secondary.darkest,
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        filledDefault: {
-          color: paletteOptions.text.primary,
-        },
-        icon: {
-          color: paletteOptions.action.active,
         },
       },
     },
@@ -588,64 +751,6 @@ export const createThemeComponents = ({
         },
       },
     },
-    MuiTableCell: {
-      styleOverrides: {
-        root: {
-          [`&:first-of-type`]: {
-            paddingLeft: 24,
-          },
-          [`&:last-child`]: {
-            paddingRight: 24,
-          },
-          borderBottom: 'none',
-          padding: '13px 16px',
-          whiteSpace: 'nowrap',
-        },
-      },
-    },
-    MuiTableHead: {
-      styleOverrides: {
-        root: {
-          borderBottom: 'none',
-          borderTopLeftRadius: 8,
-          backgroundColor: paletteOptions.background.paperTertiary,
-          [`& .${tableCellClasses.root}`]: {
-            color: paletteOptions.text.secondary,
-          },
-          [`& .${tableCellClasses.root}`]: {
-            borderBottom: 'none',
-            fontSize: 12,
-            fontWeight: 600,
-            letterSpacing: 0.5,
-            lineHeight: 1,
-            padding: 16,
-            textTransform: 'uppercase',
-          },
-          [`& .${tableCellClasses.root}:first-of-type`]: {
-            paddingLeft: 24,
-          },
-          [`& .${tableCellClasses.root}:last-child`]: {
-            paddingRight: 24,
-          },
-          [`& .${tableCellClasses.paddingCheckbox}`]: {
-            paddingBottom: 4,
-            paddingTop: 4,
-          },
-        },
-      },
-    },
-    MuiTableRow: {
-      styleOverrides: {
-        root: {
-          [`&.${tableRowClasses.hover}`]: {
-            cursor: 'pointer',
-          },
-          '&:not(:last-child)': {
-            borderBottom: `1px solid ${paletteOptions.divider}`,
-          },
-        },
-      },
-    },
     MuiTabs: {
       styleOverrides: {
         root: {
@@ -705,14 +810,6 @@ export const createThemeComponents = ({
           [`&:not(.${backdropClasses.invisible})`]: {
             backgroundColor: alpha('#000', 0.5),
           },
-        },
-      },
-    },
-    MuiDialog: {
-      styleOverrides: {
-        paper: {
-          borderRadius: '20px',
-          maxWidth: 600,
         },
       },
     },

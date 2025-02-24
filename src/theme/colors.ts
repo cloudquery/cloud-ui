@@ -100,3 +100,12 @@ export const success = {
   lightest: '#F0FDF9',
   main: '#15B79E',
 };
+
+/**
+ * Grey colors for Material-UI theme
+ *
+ * @public
+ */
+export const grey = {
+  300: '#E0E0E0',
+};
