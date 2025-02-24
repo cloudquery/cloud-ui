@@ -2,8 +2,10 @@ import { ThemeOptions } from '@mui/material/styles';
 
 import { breakpoints } from './breakpoints';
 import { createThemeComponents } from './createComponents';
+import { createElevation } from './createElevation';
 import { createThemePaletteOptions } from './createPaletteOptions';
 import { createThemeShadows } from './createShadows';
+import { createSizing } from './createSizing';
 import { createTypographyOptions } from './createTypographyOptions';
 
 /**
@@ -16,11 +18,16 @@ import { createTypographyOptions } from './createTypographyOptions';
  *
  * @public
  */
-export const createThemeOptions = (): ThemeOptions => {
+export const createThemeOptions = (): ThemeOptions & {
+  elevation: ReturnType<typeof createElevation>;
+  sizing: ReturnType<typeof createSizing>;
+} => {
   const typographyOptions = createTypographyOptions();
   const paletteOptions = createThemePaletteOptions();
   const components = createThemeComponents({ paletteOptions, typographyOptions });
   const shadows = createThemeShadows();
+  const elevation = createElevation();
+  const sizing = createSizing();
 
   return {
     breakpoints: {
@@ -34,5 +41,7 @@ export const createThemeOptions = (): ThemeOptions => {
     palette: paletteOptions,
     shadows,
     typography: typographyOptions,
+    elevation,
+    sizing,
   };
 };

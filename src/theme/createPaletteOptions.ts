@@ -2,7 +2,7 @@ import { common } from '@mui/material/colors';
 import { alpha } from '@mui/material/styles';
 import { PaletteOptions } from '@mui/material/styles/createPalette';
 
-import { error, info, neutral, success, warning, primary, secondary } from './colors';
+import { error, info, neutral, success, warning, primary, secondary, grey } from './colors';
 
 /**
  * Creates and returns palette options for a Material-UI theme.
@@ -44,11 +44,13 @@ export const createThemePaletteOptions = () => {
       paper: neutral[900],
       paperGlass: alpha(neutral[900], 0.9),
       paperTertiary: neutral[800],
+      table: 'rgba(107, 151, 227, 0.05)',
     },
     common,
     divider: '#29303D',
     error,
     info,
+    grey,
     mode: 'dark' as PaletteOptions['mode'],
     neutral,
     primary: {
@@ -66,5 +68,12 @@ export const createThemePaletteOptions = () => {
       secondary: '#C8CBD0',
     },
     warning,
+    nav: {
+      discreet: '#F3F4F6',
+      evident: '#B5BCC4',
+      evidentActive: '#EDF2F7',
+      evidentBg: '#1C2536',
+      evidentDivider: '#2F3746',
+    },
   };
 };

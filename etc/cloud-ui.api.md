@@ -22,9 +22,20 @@ declare namespace colors {
         error,
         warning,
         info,
-        success
+        success,
+        grey
     }
 }
+
+// @public (undocumented)
+export const createElevation: () => {
+    dropdown: string;
+};
+
+// @public (undocumented)
+export const createSizing: () => {
+    tableRowHeight: number;
+};
 
 // @public
 export const createThemeComponents: ({ paletteOptions, typographyOptions, }: {
@@ -33,7 +44,10 @@ export const createThemeComponents: ({ paletteOptions, typographyOptions, }: {
 }) => Components;
 
 // @public
-export const createThemeOptions: () => ThemeOptions;
+export const createThemeOptions: () => ThemeOptions & {
+    elevation: ReturnType<typeof createElevation>;
+    sizing: ReturnType<typeof createSizing>;
+};
 
 // @public
 export const createThemePaletteOptions: () => {
@@ -68,6 +82,7 @@ export const createThemePaletteOptions: () => {
         paper: string;
         paperGlass: string;
         paperTertiary: string;
+        table: string;
     };
     common: {
         black: "#000";
@@ -89,6 +104,9 @@ export const createThemePaletteOptions: () => {
         light: string;
         lightest: string;
         main: string;
+    };
+    grey: {
+        300: string;
     };
     mode: PaletteOptions["mode"];
     neutral: {
@@ -143,6 +161,13 @@ export const createThemePaletteOptions: () => {
         lightest: string;
         main: string;
     };
+    nav: {
+        discreet: string;
+        evident: string;
+        evidentActive: string;
+        evidentBg: string;
+        evidentDivider: string;
+    };
 };
 
 // @public
@@ -159,6 +184,11 @@ const error: {
     light: string;
     lightest: string;
     main: string;
+};
+
+// @public
+const grey: {
+    300: string;
 };
 
 // @public
