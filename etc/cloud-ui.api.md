@@ -27,6 +27,11 @@ declare namespace colors {
     }
 }
 
+// @public (undocumented)
+export const createElevation: () => {
+    dropdown: string;
+};
+
 // @public
 export const createThemeComponents: ({ paletteOptions, typographyOptions, }: {
     paletteOptions: ReturnType<typeof createThemePaletteOptions>;
@@ -34,7 +39,9 @@ export const createThemeComponents: ({ paletteOptions, typographyOptions, }: {
 }) => Components;
 
 // @public
-export const createThemeOptions: () => ThemeOptions;
+export const createThemeOptions: () => ThemeOptions & {
+    elevation: ReturnType<typeof createElevation>;
+};
 
 // @public
 export const createThemePaletteOptions: () => {
