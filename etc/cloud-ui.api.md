@@ -32,6 +32,11 @@ export const createElevation: () => {
     dropdown: string;
 };
 
+// @public (undocumented)
+export const createSizing: () => {
+    tableRowHeight: number;
+};
+
 // @public
 export const createThemeComponents: ({ paletteOptions, typographyOptions, }: {
     paletteOptions: ReturnType<typeof createThemePaletteOptions>;
@@ -41,6 +46,7 @@ export const createThemeComponents: ({ paletteOptions, typographyOptions, }: {
 // @public
 export const createThemeOptions: () => ThemeOptions & {
     elevation: ReturnType<typeof createElevation>;
+    sizing: ReturnType<typeof createSizing>;
 };
 
 // @public
