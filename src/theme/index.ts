@@ -6,3 +6,4 @@ export { createThemePaletteOptions } from './createPaletteOptions';
 export { createThemeShadows } from './createShadows';
 export { createTypographyOptions } from './createTypographyOptions';
 export { createElevation } from './createElevation';
+export { createSizing } from './createSizing';

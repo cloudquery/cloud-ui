@@ -15,14 +15,13 @@ import { tableRowClasses } from '@mui/material/TableRow';
 
 import { breakpoints } from './breakpoints';
 import { createThemePaletteOptions } from './createPaletteOptions';
+import { createSizing } from './createSizing';
 
 import '@mui/lab/themeAugmentation';
 
 const muiTheme = createMuiTheme();
 
-const sizing = {
-  tableRowHeight: 43,
-};
+const sizing = createSizing();
 
 /**
  * Creates and returns component overrides for a Material-UI theme.
