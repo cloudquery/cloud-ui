@@ -42,15 +42,6 @@ export const createThemeComponents = ({
   return {
     MuiAlert: {
       styleOverrides: {
-        root: {
-          ...typographyOptions.body2,
-          '.MuiAlert-icon': {
-            alignItems: 'center',
-          },
-          [`.${alertClasses.action}`]: {
-            alignItems: 'center',
-          },
-        },
         action: {
           'a, button': {
             color: 'inherit',
@@ -95,6 +86,15 @@ export const createThemeComponents = ({
           },
           color: 'inherit',
         },
+        root: {
+          ...typographyOptions.body2,
+          '.MuiAlert-icon': {
+            alignItems: 'center',
+          },
+          [`.${alertClasses.action}`]: {
+            alignItems: 'center',
+          },
+        },
       },
     },
     MuiAlertTitle: {
@@ -109,11 +109,11 @@ export const createThemeComponents = ({
     MuiAvatar: {
       styleOverrides: {
         root: {
+          backgroundColor: paletteOptions.neutral[300],
+          color: '#000',
           fontSize: 14,
           fontWeight: 600,
           letterSpacing: 0,
-          backgroundColor: paletteOptions.neutral[300],
-          color: '#000',
         },
       },
     },
@@ -175,8 +175,8 @@ export const createThemeComponents = ({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 20,
           backgroundColor: paletteOptions.background.paper,
+          borderRadius: 20,
           boxShadow: '0px 0px 0px 0.5px rgba(0, 0, 0, 0.03), 0px 5px 22px 0px rgba(0, 0, 0, 0.04)',
         },
       },
@@ -188,194 +188,6 @@ export const createThemeComponents = ({
             paddingBottom: '24px',
           },
           padding: '24px 24px',
-        },
-      },
-    },
-    MuiChip: {
-      styleOverrides: {
-        root: {
-          height: '24px',
-          '& span': {
-            fontFeatureSettings: "'clig' off",
-            letterSpacing: '0.16px',
-            lineHeight: '18px',
-            paddingLeft: '10px',
-            paddingRight: '10px',
-          },
-          borderRadius: '12px',
-          fontWeight: 500,
-          paddingBottom: '3px',
-          paddingTop: '3px',
-        },
-        colorSuccess: (props) => ({
-          backgroundColor:
-            props.ownerState.variant === 'filled' ? paletteOptions.success.main : undefined,
-          borderColor:
-            props.ownerState.variant === 'outlined' ? paletteOptions.success.main : undefined,
-        }),
-        colorWarning: (props) => ({
-          backgroundColor:
-            props.ownerState.variant === 'filled' ? paletteOptions.warning.main : undefined,
-          borderColor:
-            props.ownerState.variant === 'outlined'
-              ? alpha(paletteOptions.warning.main, 0.5)
-              : undefined,
-        }),
-        filled: {
-          color: paletteOptions.secondary.darkest,
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        filledDefault: {
-          color: paletteOptions.text.primary,
-        },
-        icon: {
-          color: paletteOptions.action.active,
-        },
-      },
-    },
-    MuiDataGrid: {
-      styleOverrides: {
-        columnHeader: {
-          borderRadius: '8px 8px 0 0 ',
-          padding: '0px 8px',
-        },
-        filterForm: {
-          alignItems: 'flex-end',
-        },
-        root: {
-          '& .MuiDataGrid-cell': {
-            backgroundColor: paletteOptions.background.table,
-            height: sizing.tableRowHeight,
-            paddingBottom: 0,
-            paddingTop: 0,
-          },
-          '& .MuiDataGrid-columnSeparator': {
-            display: 'none',
-          },
-          '& .MuiDataGrid-withBorderColor': {
-            borderColor: paletteOptions.divider,
-          },
-          ['--DataGrid-rowBorderColor']: paletteOptions.divider,
-          borderRadius: 1.5,
-        },
-        row: {
-          '&.Mui-selected': {
-            '&:hover': {
-              backgroundColor: paletteOptions.primary.hovered,
-            },
-            backgroundColor: 'unset',
-          },
-        },
-      },
-    },
-    MuiDialog: {
-      defaultProps: {
-        onClick: (event) => event.stopPropagation(),
-      },
-      styleOverrides: {
-        paper: {
-          borderRadius: '20px',
-          maxWidth: 600,
-        },
-      },
-    },
-    MuiDrawer: {
-      styleOverrides: {
-        paper: {
-          backgroundColor: paletteOptions.background.paper,
-        },
-      },
-    },
-    MuiTable: {
-      styleOverrides: {
-        root: {
-          backgroundColor: paletteOptions.background.table,
-        },
-      },
-    },
-    MuiTableCell: {
-      styleOverrides: {
-        root: {
-          [`&:first-of-type`]: {
-            paddingLeft: 24,
-          },
-          [`&:last-child`]: {
-            paddingRight: 24,
-          },
-          borderBottom: 'none',
-          padding: '0 16px',
-          whiteSpace: 'nowrap',
-        },
-      },
-    },
-    MuiTableHead: {
-      styleOverrides: {
-        root: {
-          height: sizing.tableRowHeight,
-          [`.${tableCellClasses.root}`]: {
-            paddingBottom: 0,
-            paddingTop: 0,
-          },
-          [`.${tableCellClasses.root}:first-of-type`]: {
-            borderTopLeftRadius: '8px',
-          },
-          [`.${tableCellClasses.root}:last-of-type`]: {
-            borderTopRightRadius: '8px',
-          },
-          backgroundColor: 'transparent',
-          borderBottom: `1px solid ${paletteOptions.divider}`,
-          borderTopLeftRadius: 8,
-          [`& .${tableCellClasses.root}`]: {
-            color: paletteOptions.text.secondary,
-            borderBottom: 'none',
-            fontSize: 12,
-            fontWeight: 600,
-            letterSpacing: 0.5,
-            lineHeight: 1,
-            padding: 16,
-            textTransform: 'uppercase',
-          },
-          [`& .${tableCellClasses.root}:first-of-type`]: {
-            paddingLeft: 24,
-          },
-          [`& .${tableCellClasses.root}:last-child`]: {
-            paddingRight: 24,
-          },
-          [`& .${tableCellClasses.paddingCheckbox}`]: {
-            paddingBottom: 4,
-            paddingTop: 4,
-          },
-        },
-      },
-    },
-    MuiTablePagination: {
-      styleOverrides: {
-        root: {
-          backgroundColor: paletteOptions.background.table,
-          bottom: 0,
-          flexShrink: 0,
-          position: 'sticky',
-        },
-      },
-    },
-    MuiTableRow: {
-      styleOverrides: {
-        root: {
-          height: sizing.tableRowHeight,
-          [`&:last-of-type:not(.${tableRowClasses.head}) .${tableCellClasses.root}:first-of-type`]:
-            {
-              borderBottomLeftRadius: '8px',
-            },
-          [`&:last-of-type:not(.${tableRowClasses.head}) .${tableCellClasses.root}:last-of-type`]: {
-            borderBottomRightRadius: '8px',
-          },
-          [`&.${tableRowClasses.hover}`]: {
-            cursor: 'pointer',
-          },
-          '&:not(:last-child)': {
-            borderBottom: `1px solid ${paletteOptions.divider}`,
-          },
         },
       },
     },
@@ -457,12 +269,91 @@ export const createThemeComponents = ({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        colorSuccess: (props) => ({
+          backgroundColor:
+            props.ownerState.variant === 'filled' ? paletteOptions.success.main : undefined,
+          borderColor:
+            props.ownerState.variant === 'outlined' ? paletteOptions.success.main : undefined,
+        }),
+        colorWarning: (props) => ({
+          backgroundColor:
+            props.ownerState.variant === 'filled' ? paletteOptions.warning.main : undefined,
+          borderColor:
+            props.ownerState.variant === 'outlined'
+              ? alpha(paletteOptions.warning.main, 0.5)
+              : undefined,
+        }),
+        filled: {
+          color: paletteOptions.secondary.darkest,
+        },
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        filledDefault: {
+          color: paletteOptions.text.primary,
+        },
+
+        icon: {
+          color: paletteOptions.action.active,
+        },
+        root: {
+          '& span': {
+            fontFeatureSettings: "'clig' off",
+            letterSpacing: '0.16px',
+            lineHeight: '18px',
+            paddingLeft: '10px',
+            paddingRight: '10px',
+          },
+          borderRadius: '12px',
+          fontWeight: 500,
+          height: '24px',
+          paddingBottom: '3px',
+          paddingTop: '3px',
+        },
+      },
+    },
     MuiContainer: {
       styleOverrides: {
         root: {
           [`@media (min-width: ${breakpoints.sm}px)`]: {
             paddingLeft: 40,
             paddingRight: 40,
+          },
+        },
+      },
+    },
+    MuiDataGrid: {
+      styleOverrides: {
+        columnHeader: {
+          borderRadius: '8px 8px 0 0 ',
+          padding: '0px 8px',
+        },
+        filterForm: {
+          alignItems: 'flex-end',
+        },
+        root: {
+          '& .MuiDataGrid-cell': {
+            backgroundColor: paletteOptions.background.table,
+            height: sizing.tableRowHeight,
+            paddingBottom: 0,
+            paddingTop: 0,
+          },
+          '& .MuiDataGrid-columnSeparator': {
+            display: 'none',
+          },
+          '& .MuiDataGrid-withBorderColor': {
+            borderColor: paletteOptions.divider,
+          },
+          ['--DataGrid-rowBorderColor']: paletteOptions.divider,
+          borderRadius: 1.5,
+        },
+        row: {
+          '&.Mui-selected': {
+            '&:hover': {
+              backgroundColor: paletteOptions.primary.hovered,
+            },
+            backgroundColor: 'unset',
           },
         },
       },
@@ -507,8 +398,31 @@ export const createThemeComponents = ({
         },
       },
     },
+    MuiDialog: {
+      defaultProps: {
+        onClick: (event) => event.stopPropagation(),
+      },
+      styleOverrides: {
+        paper: {
+          borderRadius: '20px',
+          maxWidth: 600,
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: paletteOptions.background.paper,
+        },
+      },
+    },
     MuiFilledInput: {
       styleOverrides: {
+        input: {
+          fontSize: 14,
+          fontWeight: 500,
+          lineHeight: '24px',
+        },
         root: {
           '&:after': {
             display: 'none',
@@ -518,15 +432,15 @@ export const createThemeComponents = ({
           },
           backgroundColor: 'transparent',
           borderRadius: 8,
-          borderStyle: 'solid',
-          borderWidth: 1,
-          overflow: 'hidden',
-          transition: muiTheme.transitions.create(['border-color', 'box-shadow']),
           '&:hover': {
             backgroundColor: paletteOptions.action.hover,
           },
+          borderStyle: 'solid',
           borderColor: paletteOptions.neutral[300],
+          borderWidth: 1,
           color: paletteOptions.text.primary,
+          overflow: 'hidden',
+          transition: muiTheme.transitions.create(['border-color', 'box-shadow']),
           [`&.${filledInputClasses.disabled}`]: {
             backgroundColor: 'transparent',
           },
@@ -540,16 +454,18 @@ export const createThemeComponents = ({
             boxShadow: `${paletteOptions.error.main} 0 0 0 2px`,
           },
         },
-        input: {
-          fontSize: 14,
-          fontWeight: 500,
-          lineHeight: '24px',
-        },
       },
     },
     MuiFormHelperText: {
       defaultProps: {
         component: 'div',
+      },
+    },
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          backgroundColor: paletteOptions.background.table,
+        },
       },
     },
     MuiFormLabel: {
@@ -574,10 +490,57 @@ export const createThemeComponents = ({
         },
       },
     },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          [`&:first-of-type`]: {
+            paddingLeft: 24,
+          },
+          [`&:last-child`]: {
+            paddingRight: 24,
+          },
+          borderBottom: 'none',
+          padding: '0 16px',
+          whiteSpace: 'nowrap',
+        },
+      },
+    },
     MuiIconButton: {
       styleOverrides: {
         sizeSmall: {
           padding: 4,
+        },
+      },
+    },
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'transparent',
+          borderBottom: `1px solid ${paletteOptions.divider}`,
+          height: sizing.tableRowHeight,
+          borderTopLeftRadius: 8,
+          [`& .${tableCellClasses.root}`]: {
+            borderBottom: 'none',
+            fontSize: 12,
+            fontWeight: 600,
+            letterSpacing: 0.5,
+            lineHeight: 1,
+            paddingBottom: 0,
+            paddingTop: 0,
+            textTransform: 'uppercase',
+          },
+          [`& .${tableCellClasses.root}:first-of-type`]: {
+            borderTopLeftRadius: '8px',
+            paddingLeft: 24,
+          },
+          [`& .${tableCellClasses.root}:last-child`]: {
+            borderTopRightRadius: '8px',
+            paddingRight: 24,
+          },
+          [`& .${tableCellClasses.paddingCheckbox}`]: {
+            paddingBottom: 4,
+            paddingTop: 4,
+          },
         },
       },
     },
@@ -590,12 +553,22 @@ export const createThemeComponents = ({
         },
       },
     },
+    MuiTablePagination: {
+      styleOverrides: {
+        root: {
+          backgroundColor: paletteOptions.background.table,
+          bottom: 0,
+          flexShrink: 0,
+          position: 'sticky',
+        },
+      },
+    },
     MuiInputBase: {
       styleOverrides: {
         input: {
           '&::placeholder': {
-            opacity: 1,
             color: paletteOptions.text.secondary,
+            opacity: 1,
           },
         },
         root: {
@@ -603,6 +576,26 @@ export const createThemeComponents = ({
             [`&.${filledInputClasses.disabled}`]: {
               borderColor: paletteOptions.divider,
             },
+          },
+        },
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          height: sizing.tableRowHeight,
+          [`&:last-of-type:not(.${tableRowClasses.head}) .${tableCellClasses.root}:first-of-type`]:
+            {
+              borderBottomLeftRadius: '8px',
+            },
+          [`&:last-of-type:not(.${tableRowClasses.head}) .${tableCellClasses.root}:last-of-type`]: {
+            borderBottomRightRadius: '8px',
+          },
+          [`&.${tableRowClasses.hover}`]: {
+            cursor: 'pointer',
+          },
+          '&:not(:last-child)': {
+            borderBottom: `1px solid ${paletteOptions.divider}`,
           },
         },
       },
@@ -664,8 +657,8 @@ export const createThemeComponents = ({
           lineHeight: '24px',
         },
         notchedOutline: {
-          transition: muiTheme.transitions.create(['border-color', 'box-shadow']),
           borderColor: paletteOptions.divider,
+          transition: muiTheme.transitions.create(['border-color', 'box-shadow']),
         },
         root: {
           '&:hover': {
@@ -693,8 +686,17 @@ export const createThemeComponents = ({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
           backgroundColor: paletteOptions.neutral[800],
+          backgroundImage: 'none',
+        },
+      },
+    },
+    MuiBackdrop: {
+      styleOverrides: {
+        root: {
+          [`&:not(.${backdropClasses.invisible})`]: {
+            backgroundColor: alpha('#000', 0.5),
+          },
         },
       },
     },
@@ -703,9 +705,25 @@ export const createThemeComponents = ({
         elevation: 16,
       },
     },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          padding: '16px 24px',
+        },
+      },
+    },
     MuiRadio: {
       defaultProps: {
         color: 'primary',
+      },
+    },
+    MuiDialogContent: {
+      styleOverrides: {
+        root: {
+          '&&': {
+            padding: '16px 24px',
+          },
+        },
       },
     },
     MuiStepLabel: {
@@ -715,6 +733,13 @@ export const createThemeComponents = ({
             color: paletteOptions.primary.main,
           },
           color: paletteOptions.secondary.main,
+        },
+      },
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          padding: '20px 24px 4px',
         },
       },
     },
@@ -729,6 +754,18 @@ export const createThemeComponents = ({
         track: {
           backgroundColor: paletteOptions.neutral[400],
           opacity: 1,
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          [`&.${formLabelClasses.filled}`]: {
+            color: paletteOptions.text.secondary,
+          },
+          [`&.${formLabelClasses.focused}`]: {
+            color: paletteOptions.primary.main,
+          },
         },
       },
     },
@@ -749,6 +786,21 @@ export const createThemeComponents = ({
         },
       },
     },
+    MuiPaginationItem: {
+      styleOverrides: {
+        root: {
+          borderRadius: '12px',
+          [`&.${paginationItemClasses.selected}`]: {
+            '&:hover': {
+              backgroundColor: paletteOptions.primary.main,
+              color: paletteOptions.primary.contrastText,
+            },
+            backgroundColor: paletteOptions.primary.main,
+            color: paletteOptions.primary.contrastText,
+          },
+        },
+      },
+    },
     MuiTabs: {
       styleOverrides: {
         root: {
@@ -764,21 +816,21 @@ export const createThemeComponents = ({
     MuiToggleButton: {
       styleOverrides: {
         root: {
-          justifyContent: 'flex-start',
-          textAlign: 'left',
-          textTransform: 'none',
           borderRadius: '12px',
-          borderColor: paletteOptions.action.active,
           '&:hover': {
             backgroundColor: paletteOptions.primary.hovered,
             borderColor: paletteOptions.primary.dark,
           },
-          '&.Mui-selected': {
-            borderColor: paletteOptions.primary.main,
-          },
+          justifyContent: 'flex-start',
           '& .MuiRadio-root:hover': {
             background: 'none',
           },
+          textAlign: 'left',
+          '&.Mui-selected': {
+            borderColor: paletteOptions.primary.main,
+          },
+          textTransform: 'none',
+          borderColor: paletteOptions.action.active,
         },
       },
     },
@@ -799,65 +851,6 @@ export const createThemeComponents = ({
         variantMapping: {
           body1Bold: 'p',
           body2Bold: 'p',
-        },
-      },
-    },
-    MuiBackdrop: {
-      styleOverrides: {
-        root: {
-          [`&:not(.${backdropClasses.invisible})`]: {
-            backgroundColor: alpha('#000', 0.5),
-          },
-        },
-      },
-    },
-    MuiDialogActions: {
-      styleOverrides: {
-        root: {
-          padding: '16px 24px',
-        },
-      },
-    },
-    MuiDialogContent: {
-      styleOverrides: {
-        root: {
-          '&&': {
-            padding: '16px 24px',
-          },
-        },
-      },
-    },
-    MuiDialogTitle: {
-      styleOverrides: {
-        root: {
-          padding: '20px 24px 4px',
-        },
-      },
-    },
-    MuiInputLabel: {
-      styleOverrides: {
-        root: {
-          [`&.${formLabelClasses.filled}`]: {
-            color: paletteOptions.text.secondary,
-          },
-          [`&.${formLabelClasses.focused}`]: {
-            color: paletteOptions.primary.main,
-          },
-        },
-      },
-    },
-    MuiPaginationItem: {
-      styleOverrides: {
-        root: {
-          borderRadius: '12px',
-          [`&.${paginationItemClasses.selected}`]: {
-            '&:hover': {
-              backgroundColor: paletteOptions.primary.main,
-              color: paletteOptions.primary.contrastText,
-            },
-            backgroundColor: paletteOptions.primary.main,
-            color: paletteOptions.primary.contrastText,
-          },
         },
       },
     },
