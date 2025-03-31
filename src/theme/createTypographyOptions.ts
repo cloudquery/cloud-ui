@@ -1,4 +1,4 @@
-import { TypographyOptions } from '@mui/material/styles/createTypography';
+import { TypographyVariantsOptions } from '@mui/material/styles';
 
 const fontFamilyAzeretMono = "'Azeret Mono', sans-serif";
 const fontFamilyJakarta = "'Plus Jakarta Sans', sans-serif";
@@ -10,7 +10,7 @@ const fontFamilyJakarta = "'Plus Jakarta Sans', sans-serif";
  *
  * @public
  */
-export const createTypographyOptions = (): TypographyOptions => {
+export const createTypographyOptions = (): TypographyVariantsOptions => {
   return {
     body1: {
       fontSize: '1rem',

@@ -1,6 +1,5 @@
 import { common } from '@mui/material/colors';
-import { alpha } from '@mui/material/styles';
-import { PaletteOptions } from '@mui/material/styles/createPalette';
+import { alpha, PaletteOptions } from '@mui/material/styles';
 
 import { error, info, neutral, success, warning, primary, secondary, grey } from './colors';
 

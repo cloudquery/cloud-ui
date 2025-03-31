@@ -6,10 +6,10 @@
 
 import { BreakpointOverrides } from '@mui/system/createBreakpoints/createBreakpoints';
 import { Components } from '@mui/material/styles';
-import { PaletteOptions } from '@mui/material/styles/createPalette';
+import { PaletteOptions } from '@mui/material/styles';
 import { Shadows } from '@mui/material/styles';
 import { ThemeOptions } from '@mui/material/styles';
-import { TypographyOptions } from '@mui/material/styles/createTypography';
+import { TypographyVariantsOptions } from '@mui/material/styles';
 
 // @public
 export const breakpoints: Record<keyof BreakpointOverrides, number>;
@@ -40,7 +40,7 @@ export const createSizing: () => {
 // @public
 export const createThemeComponents: ({ paletteOptions, typographyOptions, }: {
     paletteOptions: ReturnType<typeof createThemePaletteOptions>;
-    typographyOptions: TypographyOptions;
+    typographyOptions: TypographyVariantsOptions;
 }) => Components;
 
 // @public
@@ -174,7 +174,7 @@ export const createThemePaletteOptions: () => {
 export const createThemeShadows: () => Shadows;
 
 // @public
-export const createTypographyOptions: () => TypographyOptions;
+export const createTypographyOptions: () => TypographyVariantsOptions;
 
 // @public
 const error: {
