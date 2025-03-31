@@ -7,8 +7,13 @@ import { inputLabelClasses } from '@mui/material/InputLabel';
 import { menuItemClasses } from '@mui/material/MenuItem';
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 import { paginationItemClasses } from '@mui/material/PaginationItem';
-import { alpha, Components, PaletteColor } from '@mui/material/styles';
-import { createTheme as createMuiTheme, TypographyVariantsOptions } from '@mui/material/styles';
+import {
+  alpha,
+  Components,
+  PaletteColor,
+  createTheme as createMuiTheme,
+  TypographyVariantsOptions,
+} from '@mui/material/styles';
 import { tableCellClasses } from '@mui/material/TableCell';
 import { tableRowClasses } from '@mui/material/TableRow';
 
