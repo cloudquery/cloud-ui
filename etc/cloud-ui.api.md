@@ -130,11 +130,13 @@ export const createThemePaletteOptions: () => {
         light: string;
         lightest: string;
         main: string;
+        selected: string;
     };
     secondary: {
         hovered: string;
         contrastText: string;
         dark: string;
+        darkMedium: string;
         darkest: string;
         light: string;
         lightest: string;
@@ -224,12 +226,14 @@ const primary: {
     light: string;
     lightest: string;
     main: string;
+    selected: string;
 };
 
 // @public
 const secondary: {
     contrastText: string;
     dark: string;
+    darkMedium: string;
     darkest: string;
     light: string;
     lightest: string;
