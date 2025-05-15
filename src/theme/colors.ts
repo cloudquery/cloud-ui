@@ -29,6 +29,7 @@ export const primary = {
   light: '#6EE792',
   lightest: '#CFFBD3',
   main: '#17B264',
+  selected: 'rgba(23, 178, 100, 0.12)',
 };
 
 /**
@@ -39,6 +40,7 @@ export const primary = {
 export const secondary = {
   contrastText: '#FFFFFF',
   dark: '#2F3746',
+  darkMedium: '#15202E',
   darkest: '#111927',
   light: '#EAEFF5',
   lightest: '#F8FAFC',
