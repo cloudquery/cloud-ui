@@ -80,6 +80,7 @@ declare module '@mui/material/styles/createPalette' {
     hovered?: string;
     lightest?: string;
     darkestBg?: string;
+    darkMedium?: string;
   }
 
   interface SimplePaletteColorOptions {
