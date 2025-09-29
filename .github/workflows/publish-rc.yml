@@ -3,7 +3,8 @@ name: Publish release-candidate npm package
 on:
   pull_request:
     types: [opened, reopened, synchronize]
-
+permissions:
+  contents: read
 jobs:
   publish_rc:
     if: contains(github.event.pull_request.labels.*.name, 'release-candidate')
