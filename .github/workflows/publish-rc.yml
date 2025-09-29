@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18.18.0'
+          node-version: '18.20.8'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Get package name and current version from package.json
@@ -83,7 +83,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
       - name: Create comment
-        uses: peter-evans/create-or-update-comment@8da4c50e7142257262c9df90da4e74a59068c038
+        uses: peter-evans/create-or-update-comment@076d57233ac816370d98e4a8471745e4bab20c6e
         with:
           token: ${{ secrets.GH_CQ_BOT }}
           issue-number: ${{ github.event.pull_request.number }}
