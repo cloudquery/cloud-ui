@@ -1,0 +1,9 @@
+{
+  extends: ['github>cloudquery/.github//.github/renovate-node-default.json5'],
+  packageRules: [
+    {
+      matchPackageNames: ["*"],
+      groupName: "everything",
+    },
+  ],
+}
