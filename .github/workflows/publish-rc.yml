@@ -12,12 +12,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '18.20.8'
+          node-version-file: '.nvmrc'
+          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Get package name and current version from package.json
@@ -29,7 +30,7 @@ jobs:
           echo "::set-output name=current_version::$PACKAGE_VERSION"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run lint
         run: npm run lint
@@ -83,7 +84,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
       - name: Create comment
-        uses: peter-evans/create-or-update-comment@076d57233ac816370d98e4a8471745e4bab20c6e
+        uses: peter-evans/create-or-update-comment@8da4c50e7142257262c9df90da4e74a59068c038
         with:
           token: ${{ secrets.GH_CQ_BOT }}
           issue-number: ${{ github.event.pull_request.number }}

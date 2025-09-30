@@ -12,12 +12,13 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v5
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
-        node-version: '18.20.8'
+        node-version-file: '.nvmrc'
+        cache: 'npm'
         registry-url: 'https://registry.npmjs.org'
 
     - name: Get package name and current version from package.json
@@ -47,7 +48,7 @@ jobs:
 
     - name: Install dependencies
       if: steps.check_version.outputs.version_changed == 'true'
-      run: npm install
+      run: npm ci
 
     - name: Build package
       if: steps.check_version.outputs.version_changed == 'true'
